@@ -1,0 +1,42 @@
+﻿@model Catalog.Models.Ship
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="content">
+    <div class="row">
+        <div class="col-xs-10">
+            <div class="box">
+                <div class="box-header">
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <h2>Details</h2>
+
+                    <div>
+                        <h4>Ship</h4>
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.ShipName)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.ShipName)
+                            </dd>
+
+                            @*<dt>
+                                @Html.DisplayNameFor(model => model.OrderBY)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.OrderBY)
+                            </dd>*@
+
+                        </dl>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                        @Html.ActionLink("Back to List", "Index")
+                    </p>
+                    </div></div></div></div></section>

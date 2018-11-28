@@ -1,0 +1,33 @@
+﻿@{
+    if (Session["Role"].ToString() == "Users")
+    {
+        Layout = "~/Views/Shared/_Layout_user.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-10">
+            <div class="box">
+                <div class="box-header">
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <img  class="ims_image" src="~/UserImages/SystemProcedure/13 Towing Procedure/13 Towing Procedure-1.jpg" />
+                    <img  class="ims_image" src="~/UserImages/SystemProcedure/13 Towing Procedure/13 Towing Procedure-2.jpg" />
+                    <img  class="ims_image" src="~/UserImages/SystemProcedure/13 Towing Procedure/13 Towing Procedure-3.jpg" />
+                    <img  class="ims_image" src="~/UserImages/SystemProcedure/13 Towing Procedure/13 Towing Procedure-4.jpg" />
+                    <img  class="ims_image" src="~/UserImages/SystemProcedure/13 Towing Procedure/13 Towing Procedure-5.jpg" />
+                    <img  class="ims_image" src="~/UserImages/SystemProcedure/13 Towing Procedure/13 Towing Procedure-6.jpg" />
+                    <img  class="ims_image" src="~/UserImages/SystemProcedure/13 Towing Procedure/13 Towing Procedure-7.jpg" />
+                    <img  class="ims_image" src="~/UserImages/SystemProcedure/13 Towing Procedure/13 Towing Procedure-8.jpg" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

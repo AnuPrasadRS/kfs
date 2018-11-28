@@ -1,0 +1,154 @@
+﻿@model IEnumerable<Catalog.Models.Training>
+
+@{
+    ViewBag.Title = "Index";
+    if (Session["Role"].ToString() == "Users")
+    {
+        Layout = "~/Views/Shared/_Layout_user.cshtml";
+
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+    }
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+
+                    <p>
+                        @Html.ActionLink("Create New", "Create")
+                    </p>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Training_Topic)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Type)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Participant_No)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Duration)
+                            </th>
+                            <th>
+                                @Html.DisplayName("Training Hours")
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Trainer_Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Trainer_Desig)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Date)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Location)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Comments)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Remark)
+                            </th>
+                            <th>
+                                Attendance  Sheet
+                            </th>
+                            <th>
+                                Evaluation Sheet
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Training_Topic)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Participant_No)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Duration)
+                                </td>
+                                <td>
+                                    @{ int value1 =Convert.ToInt32(item.Participant_No);
+                                        int value2 = Convert.ToInt32(item.Duration);
+                                        int value = value1 * value2;
+                                        }
+                                    @value
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Trainer_Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Trainer_Desig)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Date)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Location)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Comments)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Remark)
+                                </td>
+                                <td>
+                                    @{ if (item.AttendanceSheet == null)
+                                        {
+                                            <a target="" href="">No File</a>
+
+                                        }
+                                        else
+                                        {
+                                            <a target="_blank" href="~/TrainingsFiles/Attendance/@Html.DisplayFor(modelItem => item.AttendanceSheet)">View or Download</a>
+
+                                        }
+                                    }
+
+                                </td>
+                                <td>
+                                    @{ if (item.EvaluationSheet == null)
+                                        {
+                                            <a target="" href="">No File</a>
+
+                                        }
+                                        else
+                                        {
+                                            <a target="_blank" href="~/TrainingsFiles/Evaluation/@Html.DisplayFor(modelItem => item.EvaluationSheet)">View or Download</a>
+
+                                        }
+                                    }
+
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.TrainingID }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.TrainingID }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.TrainingID })
+                                </td>
+                            </tr>
+                                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

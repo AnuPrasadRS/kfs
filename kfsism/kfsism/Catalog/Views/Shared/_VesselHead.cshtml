@@ -1,0 +1,92 @@
+﻿@model Catalog.Models.vessel_head
+<tr>
+    <td style="font-family:Calibri;font-size:11px;font-weight:bold;border-left:2px solid;border-bottom:1px solid;border-left-color:#000000;border-bottom-color:#000000;" class="auto-style6" colspan="4"></td>
+    <td style="font-family:Calibri;font-size:11px;font-weight:bold;border-bottom:1px solid;border-bottom-color:#000000;" colspan="2"></td>
+    <td style="font-family:Calibri;font-size:14px;font-weight:bold;border-top:1px solid #000000; border-bottom:1px solid #000000;" class="auto-style2" colspan="2"></td>
+    <td style="font-family:Calibri;font-size:11px;font-weight:bold;border-bottom:1px solid;border-bottom-color:#000000;" colspan="2">
+        <nobr>Navigation License Validity:</nobr>
+
+    </td>
+    <td style="font-family:Calibri;font-size:14px;font-weight:bold;border-top:1px solid #000000; border-bottom:1px solid #000000;" class="auto-style2" colspan="2">
+        @Html.TextBoxFor(a => a.navigation)
+    </td>
+</tr>
+<tr>
+    <td style="font-family:Calibri;font-size:11px;font-weight:bold;border-left:2px solid;border-left-color:#000000;" class="auto-style3" colspan="2">
+        <nobr>Vessel Name :</nobr>
+
+    </td>
+    <td style="font-family:Calibri;font-size:14px;font-weight:bold;border-top:1px solid #000000;" class="auto-style4" colspan="2">
+        @Html.DropDownListFor(model => model.ShipsId, (SelectList)ViewBag.Ships, "Select Ship")
+        @Html.ValidationMessageFor(model => model.ShipsId, "", new { @class = "text-danger" })
+    </td>
+    <td style="font-family:Calibri;font-size:11px;font-weight:bold;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" class="auto-style3" colspan="2">
+        <nobr>Report for the Month : &nbsp;</nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:14px;font-weight:bold;border-top:1px solid #000000; border-bottom:1px solid #000000;" class="auto-style4" colspan="2">
+        @{ DateTime dt;
+            if (ViewBag.Viewform == true)
+            {
+                dt = Convert.ToDateTime(Model.date).Date;
+            }
+            else
+            {
+                dt = DateTime.Now.Date;
+            }
+
+        }
+        <input type="text" id="date" name="date" value="@dt" />
+
+    </td>
+    <td style="font-family:Calibri;font-size:11px;font-weight:bold;" class="auto-style3" colspan="2">
+        <nobr>IMO No. : &nbsp;</nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:14px;font-weight:bold;border-top:1px solid #000000; border-bottom:1px solid #000000;" class="auto-style4" colspan="2">
+        @Html.TextBoxFor(a => a.imono)
+    </td>
+</tr>
+<tr style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;font-weight:bold;border-left:2px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" class="auto-style1" colspan="2">
+        <nobr>Vessel Type :</nobr>
+        @Html.ValidationMessageFor(model => model.type, "", new { @class = "text-danger" })
+    </td>
+    <td style="font-family:Calibri;font-size:14px;font-weight:bold;border-top:1px solid;border-bottom:1px solid;border-top-color:#000000;border-bottom-color:#000000;" colspan="2">
+        @Html.TextBoxFor(a => a.type)
+    </td>
+    <td style="font-family:Calibri;font-size:11px;font-weight:bold;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan="2">
+        <nobr>Man hours worked during month :</nobr>
+
+    </td>
+    <td style="font-family:Calibri;font-size:14px;font-weight:bold;border-top:1px solid #000000; border-bottom:1px solid #000000;" class="auto-style2" colspan="2">
+        @Html.TextBoxFor(a => a.manhours, new { @style = "display:none;" })
+        <span id="manhourss">00</span>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;font-weight:bold;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan="2">
+        <nobr>Location : &nbsp;</nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;font-weight:bold;border-top:1px solid;border-bottom:1px solid;border-top-color:#000000;border-bottom-color:#000000;" class="auto-style2" colspan="2">
+        @Html.TextBoxFor(a => a.location)
+    </td>
+</tr>
+<tr style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;font-weight:bold;border-left:2px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" class="auto-style1" colspan="2">
+        <nobr>Master Name : &nbsp;</nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:14px;font-weight:bold;border-top:1px solid;border-bottom:2px solid;border-top-color:#000000;border-bottom-color:#000000;" colspan="2">
+        @Html.TextBoxFor(a => a.master)
+        @Html.ValidationMessageFor(model => model.master, "", new { @class = "text-danger" })
+    </td>
+    <td style="font-family:Calibri;font-size:11px;font-weight:bold;border-left:2px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan="2">
+        <nobr>Chief Officer Name :</nobr>
+
+    </td>
+    <td style="font-family:Calibri;font-size:14px;font-weight:bold;border-top:1px solid;border-bottom:2px solid;border-top-color:#000000;border-bottom-color:#000000;" colspan="2">
+        @Html.TextBoxFor(a => a.chiefofficer)
+    </td>
+    <td style="font-family:Calibri;font-size:11px;font-weight:bold;border-left:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan="2">
+        <nobr>Chief Engineer Name : &nbsp;</nobr>
+    </td>
+    <td style="font-family:Times New Roman;font-size:9px;border-top:1px solid;border-bottom:3px solid;border-top-color:#000000;border-bottom-color:#000000;" class="auto-style2" colspan="2">
+        @Html.TextBoxFor(a => a.chiefengineer)
+    </td>
+</tr>

@@ -1,0 +1,125 @@
+﻿@model IEnumerable<Catalog.ViewModel.ReportViewModel>
+
+@{
+    if (Session["Role"].ToString() == "Users")
+    {
+        Layout = "~/Views/Shared/_Layout_user.cshtml";
+
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+    }
+}
+<section class="content">
+    <div class="row">
+        <div class="col-xs-10">
+            <div class="box">
+                <div class="box-header">
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table border="0" cellspacing="5" cellpadding="5">
+                        <tbody>
+                            <tr>
+                                <td>Date1:</td>
+                                <td><input type="text" id="min" name="min"></td>
+                            </tr>
+                            <tr>
+                                <td>Date2:</td>
+                                <td><input type="text" id="max" name="max"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Shipname
+                                </th>
+                                <th>
+                                    Master
+                                </th>
+                                <th>
+                                    Vesseltype
+                                </th>
+                                <th>
+                                    Date
+                                </th>
+                                <th>
+                                    View
+                                </th>
+                                <th>
+                                    Download Excel
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ShipsName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.master)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.type)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.date.Value.Date.ToShortDateString())
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("View", "ViewReport", new { id = item.id })
+
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("View", "ViewReportToEXCEL", new { id = item.id })  
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts
+ {
+    <script>
+    $.fn.dataTable.ext.search.push(
+    function( settings, data, dataIndex ) {
+        var min = parseInt( $('#min').val(), 10 );
+        var max = parseInt( $('#max').val(), 10 );
+        var age = parseFloat( data[3] ) || 0; // use data for the age column
+
+        if ( ( isNaN( min ) && isNaN( max ) ) ||
+             ( isNaN( min ) && age <= max ) ||
+             ( min <= age   && isNaN( max ) ) ||
+             ( min <= age   && age <= max ) )
+        {
+            return true;
+        }
+        return false;
+    }
+);
+
+$(document).ready(function() {
+    var table = $('.table').DataTable();
+
+    // Event listener to the two range filtering inputs to redraw on input
+    $('#min, #max').keyup( function() {
+        table.draw();
+    } );
+} );
+    </script>
+    <script>
+     //   $('.table').dataTable();
+    </script>
+
+}

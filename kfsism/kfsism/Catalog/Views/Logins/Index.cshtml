@@ -1,0 +1,160 @@
+﻿<section class="content">
+    <div class="row">
+        <div class="col-lg-3 col-md-6">
+            <!-- small box -->
+            <div class="box text-center">
+                <img class="img-dash" src="~/DashBoardImages/BV Sign DOC.jpg" />
+
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-md-6">
+            <!-- small box -->
+            <div class="box text-center">
+                <img class="img-dash" src="~/DashBoardImages/BV Sign EMS.jpg" />
+
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <!-- small box -->
+            <div class="box text-center">
+                <img class="img-dash" src="~/DashBoardImages/BV Sign OSHMS.jpg" />
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <!-- small box -->
+            <div class="box text-center">
+                <img class="img-dash" src="~/DashBoardImages/BV Sign QMS.jpg" />
+            </div>
+        </div>
+        <!-- ./col -->
+        <!-- ./col -->
+        @*<div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h3>65</h3>
+
+                        <p>Unique Visitors</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-pie-graph"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>*@
+        <!-- ./col -->
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-ship"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Total Ships</span>
+                    <span class="info-box-number">@ViewData["shipsc"]</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-red"><i class="fa fa-user-times"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Total Cordinators</span>
+                    <span class="info-box-number">@ViewData["Cordinatorc"]</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <!-- fix for small devices only -->
+        <div class="clearfix visible-sm-block"></div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="fa fa-user-plus"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Total Shorestaff</span>
+                    <span class="info-box-number">@ViewData["shorestaffc"]</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-yellow">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                </span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Total Vesselcrews</span>
+                    <span class="info-box-number">@ViewData["vesselcrewc"]</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <div class="row">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+
+            <div id="piechart" style="width: 500px; height: 500px;"></div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+
+            <div id="chart_div" style="width: 600px; height: 500px;"></div>
+        </div>
+    </div>
+</section>
+<script>
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+    google.charts.setOnLoadCallback(drawVisualization);
+
+    function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+            ['Designation', 'Count'],
+          @Html.Raw(ViewData["graphdata"])
+        ]);
+
+        var options = {
+            title: 'Designation Counts'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+
+
+    }
+        function drawVisualization() {
+            // Some raw data (not necessarily accurate)
+            var data = google.visualization.arrayToDataTable([
+                ['Year', 'Count'],
+                @Html.Raw(ViewData["graphdata2"])
+            ]);
+
+            var options = {
+                title: 'Training Year wise',
+                vAxis: { title: 'Count' },
+                hAxis: { title: 'Year' },
+                seriesType: 'bars',
+                series: { 5: { type: 'line' } }
+            };
+
+            var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+
+</script>

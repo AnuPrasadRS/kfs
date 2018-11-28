@@ -1,0 +1,691 @@
+﻿tr.mothly_activity_summ_input td > input {
+    width: 72px;
+}
+
+tr.mothly_activity_summ_input td > nobr > input {
+    width: 72px;
+}
+
+.report_remark {
+    width: 97% !important;
+}
+.readonly_backcolor{
+    background-color:#d2d6de;
+}
+
+.auto-style1 {
+}
+
+.auto-style2 {
+    text-align: left;
+}
+
+.auto-style3 {
+    height: 13px;
+}
+
+.auto-style4 {
+    text-align: left;
+    height: 13px;
+}
+
+.auto-style5 {
+}
+
+.auto-style6 {
+}
+
+.auto-style7 {
+    height: 21px;
+}
+
+#Text11 {
+    width: 72px;
+}
+
+#Text12 {
+    width: 95px;
+}
+
+#Text13 {
+    width: 95px;
+}
+
+#Text14 {
+    width: 95px;
+}
+
+#Text15 {
+    width: 95px;
+}
+
+#Text16 {
+    width: 95px;
+}
+
+#Text17 {
+    width: 72px;
+}
+
+#Text18 {
+    width: 72px;
+}
+
+#Text19 {
+    width: 72px;
+}
+
+#Text20 {
+    width: 72px;
+}
+
+#Text21 {
+    width: 72px;
+}
+
+#Text22 {
+    width: 72px;
+}
+
+#Text23 {
+    width: 72px;
+}
+
+#Text24 {
+    width: 72px;
+}
+
+#Text25 {
+    width: 72px;
+}
+
+#Text26 {
+    width: 72px;
+}
+
+#Text27 {
+    width: 72px;
+}
+
+#Text28 {
+    width: 72px;
+}
+
+#Text29 {
+    width: 72px;
+}
+
+#Text30 {
+    width: 72px;
+}
+
+#Text31 {
+    width: 72px;
+    text-align: left;
+}
+
+#Text32 {
+    width: 72px;
+}
+
+#Text33 {
+    width: 72px;
+}
+
+#Text34 {
+    width: 72px;
+}
+
+#Text35 {
+    width: 72px;
+}
+
+#Text36 {
+    width: 72px;
+}
+
+#Text37 {
+    width: 175px;
+}
+
+#Text38 {
+    width: 175px;
+}
+
+#Text39 {
+    width: 175px;
+}
+
+#Text40 {
+    width: 72px;
+}
+
+#Text41 {
+    width: 72px;
+}
+
+#Text42 {
+    width: 72px;
+}
+
+#Text43 {
+    width: 72px;
+}
+
+#Text44 {
+    width: 72px;
+}
+
+#Text45 {
+    width: 72px;
+}
+
+#Text46 {
+    width: 72px;
+}
+
+#Text47 {
+    width: 72px;
+}
+
+#Text48 {
+    width: 72px;
+}
+
+#Text49 {
+    width: 72px;
+}
+
+#Text50 {
+    width: 72px;
+}
+
+#Text51 {
+    width: 72px;
+}
+
+#Text52 {
+    width: 72px;
+}
+
+#Text53 {
+    width: 72px;
+}
+
+#Text54 {
+    width: 72px;
+}
+
+#Text55 {
+    width: 72px;
+}
+
+#Text56 {
+    width: 72px;
+}
+
+#Text57 {
+    width: 72px;
+}
+
+#Text58 {
+    width: 113px;
+}
+
+#Text59 {
+    width: 113px;
+}
+
+#Text60 {
+    width: 113px;
+}
+
+#Text61 {
+    width: 113px;
+}
+
+#Text62 {
+    width: 113px;
+}
+
+#Text63 {
+    width: 72px;
+}
+
+#Text64 {
+    width: 72px;
+}
+
+#Text65 {
+    width: 72px;
+}
+
+#Text66 {
+    width: 72px;
+}
+
+#Text67 {
+    width: 72px;
+}
+
+#Text68 {
+    width: 72px;
+}
+
+#Text69 {
+    width: 72px;
+}
+
+#Text70 {
+    width: 72px;
+}
+
+#Text71 {
+    width: 72px;
+}
+
+#Text72 {
+    width: 72px;
+}
+
+#Text73 {
+    width: 72px;
+}
+
+#Text74 {
+    width: 72px;
+}
+
+#Text75 {
+    width: 72px;
+}
+
+#Text76 {
+    width: 72px;
+}
+
+#Text77 {
+    width: 72px;
+}
+
+#Text78 {
+    width: 72px;
+}
+
+#Text79 {
+    width: 72px;
+}
+
+#Text80 {
+    width: 72px;
+}
+
+#Text81 {
+    width: 72px;
+}
+
+#Text82 {
+    width: 72px;
+}
+
+#Text83 {
+    width: 72px;
+}
+
+#Text84 {
+    width: 72px;
+}
+
+#Text85 {
+    width: 72px;
+}
+
+#Text86 {
+    width: 133px;
+}
+
+#Text87 {
+    width: 72px;
+}
+
+#Text88 {
+    width: 72px;
+}
+
+#Text89 {
+    width: 72px;
+}
+
+#Text90 {
+    width: 72px;
+}
+
+#Text91 {
+    width: 133px;
+}
+
+#Text92 {
+    width: 133px;
+}
+
+#Text93 {
+    width: 133px;
+}
+
+#Text94 {
+    width: 133px;
+}
+
+#Text95 {
+    width: 598px;
+}
+
+#Text96 {
+    width: 598px;
+}
+
+#Text97 {
+    width: 598px;
+}
+
+#Text98 {
+    width: 598px;
+}
+
+#Text99 {
+    width: 598px;
+}
+
+#Text100 {
+    width: 72px;
+}
+
+#Text101 {
+    width: 72px;
+}
+
+#Text102 {
+    width: 72px;
+}
+
+#Text103 {
+    width: 72px;
+}
+
+#Text104 {
+    width: 72px;
+}
+
+#Text105 {
+    width: 72px;
+}
+
+#Text106 {
+    width: 72px;
+}
+
+#Text107 {
+    width: 72px;
+}
+
+#Text108 {
+    width: 72px;
+}
+
+#Text109 {
+    width: 72px;
+}
+
+#Text110 {
+    width: 72px;
+}
+
+#Text111 {
+    width: 72px;
+}
+
+#Text112 {
+    width: 72px;
+}
+
+#Text113 {
+    width: 72px;
+}
+
+#Text114 {
+    width: 72px;
+}
+
+#Text115 {
+    width: 72px;
+}
+
+#Text116 {
+    width: 72px;
+}
+
+#Text117 {
+    width: 72px;
+}
+
+#Text118 {
+    width: 72px;
+}
+
+#Text119 {
+    width: 72px;
+}
+
+#Text120 {
+    width: 72px;
+}
+
+#Text121 {
+    width: 72px;
+}
+
+#Text122 {
+    width: 72px;
+}
+
+#Text123 {
+    width: 72px;
+}
+
+#Text124 {
+    width: 72px;
+}
+
+#Text125 {
+    width: 72px;
+}
+
+#Text126 {
+    width: 72px;
+}
+
+#Text127 {
+    width: 72px;
+}
+
+#Text128 {
+    width: 72px;
+}
+
+#Text129 {
+    width: 72px;
+}
+
+#Text130 {
+    width: 72px;
+}
+
+#Text131 {
+    width: 72px;
+}
+
+#Text132 {
+    width: 72px;
+}
+
+#Text133 {
+    width: 72px;
+}
+
+#Text134 {
+    width: 72px;
+}
+
+#Text135 {
+    width: 72px;
+}
+
+#Text136 {
+    width: 72px;
+}
+
+#Text137 {
+    width: 72px;
+}
+
+#Text138 {
+    width: 72px;
+}
+
+#Text139 {
+    width: 72px;
+}
+
+#Text140 {
+    width: 72px;
+}
+
+#Text141 {
+    width: 72px;
+}
+
+#Text142 {
+    width: 72px;
+}
+
+#Text143 {
+    width: 72px;
+}
+
+#Text144 {
+    width: 72px;
+}
+
+#Text145 {
+    width: 72px;
+}
+
+#Text146 {
+    width: 72px;
+}
+
+#Text147 {
+    width: 72px;
+}
+
+#Text148 {
+    width: 72px;
+}
+
+#Text149 {
+    width: 72px;
+}
+
+#Text150 {
+    width: 72px;
+}
+
+#Text151 {
+    width: 72px;
+}
+
+#Text152 {
+    width: 72px;
+}
+
+#Text153 {
+    width: 72px;
+}
+
+#Text154 {
+    width: 72px;
+}
+
+#Text155 {
+    width: 72px;
+}
+
+#Text156 {
+    width: 72px;
+}
+
+#Text157 {
+    width: 72px;
+}
+
+#Text158 {
+    width: 72px;
+}
+
+#Text159 {
+    width: 72px;
+}
+
+#Text160 {
+    width: 72px;
+}
+
+#Text161 {
+    width: 72px;
+}
+
+#Text162 {
+    width: 72px;
+}
+
+#Text163 {
+    width: 72px;
+}
+
+#Text164 {
+    width: 72px;
+}
+
+#Text165 {
+    width: 72px;
+}
+
+#Text166 {
+    width: 72px;
+}
+
+#Text167 {
+    width: 72px;
+}
+
+#Text168 {
+    width: 72px;
+}
+
+#Text169 {
+    width: 72px;
+}
+
+#Text170 {
+    width: 72px;
+}
+
+#Text171 {
+    width: 72px;
+}
+
+#TextArea1 {
+    text-align: left;
+    width: 512px;
+    height: 51px;
+}

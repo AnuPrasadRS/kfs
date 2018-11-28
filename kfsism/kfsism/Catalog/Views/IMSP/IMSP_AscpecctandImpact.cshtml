@@ -1,0 +1,33 @@
+﻿
+@{
+    if (Session["Role"].ToString() == "Users")
+    {
+        Layout = "~/Views/Shared/_Layout_user.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-10">
+            <div class="box">
+                <div class="box-header">
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+
+                    <img class="ims_image" src="~/UserImages/IMSP/02.0 Aspect Identification and Impact Mitigation/02.0 Aspect Identification and Impact Mitigation-1.jpg" />
+                    <img class="ims_image"  src="~/UserImages/IMSP/02.0 Aspect Identification and Impact Mitigation/02.0 Aspect Identification and Impact Mitigation-2.jpg" />
+                    <img class="ims_image"  src="~/UserImages/IMSP/02.0 Aspect Identification and Impact Mitigation/02.0 Aspect Identification and Impact Mitigation-3.jpg" />
+                    <img class="ims_image"  src="~/UserImages/IMSP/02.0 Aspect Identification and Impact Mitigation/02.0 Aspect Identification and Impact Mitigation-4.jpg" />
+                    <img class="ims_image"  src="~/UserImages/IMSP/02.0 Aspect Identification and Impact Mitigation/02.0 Aspect Identification and Impact Mitigation-5.jpg" />
+                    <img class="ims_image"  src="~/UserImages/IMSP/02.0 Aspect Identification and Impact Mitigation/02.0 Aspect Identification and Impact Mitigation-6.jpg" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

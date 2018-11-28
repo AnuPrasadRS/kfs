@@ -1,0 +1,30 @@
+﻿@{
+    if (Session["Role"].ToString() == "Users")
+    {
+        Layout = "~/Views/Shared/_Layout_user.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-10">
+            <div class="box">
+                <div class="box-header">
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <img  class="ims_image" src="~/UserImages/SystemProcedure/15.0 Records and Control of Records/15.0 Records and Control of Records-1.jpg" />
+                    <img  class="ims_image" src="~/UserImages/SystemProcedure/15.0 Records and Control of Records/15.0 Records and Control of Records-2.jpg" />
+                    <img  class="ims_image" src="~/UserImages/SystemProcedure/15.0 Records and Control of Records/15.0 Records and Control of Records-3.jpg" />
+                    <img  class="ims_image" src="~/UserImages/SystemProcedure/15.0 Records and Control of Records/15.0 Records and Control of Records-4.jpg" />
+                    <img  class="ims_image" src="~/UserImages/SystemProcedure/15.0 Records and Control of Records/15.0 Records and Control of Records-5.jpg" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

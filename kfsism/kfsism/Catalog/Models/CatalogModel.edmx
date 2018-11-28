@@ -1,0 +1,1565 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CatalogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="AttendanceId" />
+          </Key>
+          <Property Name="AttendanceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="FileUrl" Type="varchar(max)" />
+          <Property Name="EnteredOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Category_ID" />
+          </Key>
+          <Property Name="Category_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EmailPassword">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginId" Type="int" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Entered" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Forms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="450" />
+          <Property Name="Link" Type="varchar" MaxLength="500" />
+          <Property Name="Category" Type="int" />
+          <Property Name="Order_O" Type="int" />
+        </EntityType>
+        <EntityType Name="hselaggingwaste">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="head_id" Type="int" Nullable="false" />
+          <Property Name="warning_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="warning_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="complaints_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="complaints_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="fines_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="fines_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="observations_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="observations_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="injury_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="injury_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="plastic_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="plastic_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="food_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="food_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="cookingoil_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="cookingoil_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="metal_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="metal_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="seweragewater_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="seweragewater_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="hazardous_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="hazardous_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="others_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="others_y" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="hseleadingindent">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="head_id" Type="int" Nullable="false" />
+          <Property Name="nomeeting_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="nomeeting_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="nosuggestion_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="nosuggestion_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="noemergency_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="noemergency_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="nopermit_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="nopermit_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="notbt_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="notbt_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="nosafetyflashes_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="nosafetyflashes_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="notraining_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="notraining_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="notraininghours_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="notraininghours_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="notrainingpersons_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="notrainingpersons_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="nosafetyflashed_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="nosafetyflashed_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="ltic_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="ltic_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="rwdc_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="rwdc_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="fac_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="fac_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="oi_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="oi_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="pdi_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="pdi_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="ei_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="ei_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="nmi_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="nmi_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="mtc_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="mtc_y" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Role" Type="varchar" MaxLength="50" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Code_Created" Type="datetime" />
+          <Property Name="CreatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="monthly_activity">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="head_id" Type="int" Nullable="false" />
+          <Property Name="steamingtime" Type="varchar" MaxLength="50" />
+          <Property Name="steamingconsumption" Type="varchar" MaxLength="50" />
+          <Property Name="steamingmcr" Type="varchar" MaxLength="50" />
+          <Property Name="anchoragetime" Type="varchar" MaxLength="50" />
+          <Property Name="anchorageconsumption" Type="varchar" MaxLength="50" />
+          <Property Name="anchoragemcr" Type="varchar" MaxLength="50" />
+          <Property Name="berthtime" Type="varchar" MaxLength="50" />
+          <Property Name="berthconsumption" Type="varchar" MaxLength="50" />
+          <Property Name="berthmcr" Type="varchar" MaxLength="50" />
+          <Property Name="towingtime" Type="varchar" MaxLength="50" />
+          <Property Name="towingconsumption" Type="varchar" MaxLength="50" />
+          <Property Name="towingmcr" Type="varchar" MaxLength="50" />
+          <Property Name="downtime" Type="varchar" MaxLength="50" />
+          <Property Name="downconsumption" Type="varchar" MaxLength="50" />
+          <Property Name="downmcr" Type="varchar" MaxLength="50" />
+          <Property Name="meneauveringtime" Type="varchar" MaxLength="50" />
+          <Property Name="meneauveringconsumption" Type="varchar" MaxLength="50" />
+          <Property Name="meneauveringmcr" Type="varchar" MaxLength="50" />
+          <Property Name="otherstime" Type="varchar" MaxLength="50" />
+          <Property Name="othersconsumption" Type="varchar" MaxLength="50" />
+          <Property Name="othersmcr" Type="varchar" MaxLength="50" />
+          <Property Name="remarkstime" Type="varchar" MaxLength="500" />
+          <Property Name="remarksconsumption" Type="varchar" MaxLength="500" />
+          <Property Name="remarksmcr" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="monthly_rob">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="head_id" Type="int" Nullable="false" />
+          <Property Name="openingfuel" Type="nvarchar" MaxLength="50" />
+          <Property Name="openingfreshwater" Type="nvarchar" MaxLength="50" />
+          <Property Name="openingloil" Type="nvarchar" MaxLength="50" />
+          <Property Name="openinghoil" Type="nvarchar" MaxLength="50" />
+          <Property Name="openinggoil" Type="nvarchar" MaxLength="50" />
+          <Property Name="receivedfuel" Type="nvarchar" MaxLength="50" />
+          <Property Name="receivedfreshwater" Type="nvarchar" MaxLength="50" />
+          <Property Name="receivedloil" Type="nvarchar" MaxLength="50" />
+          <Property Name="receivedhoil" Type="nvarchar" MaxLength="50" />
+          <Property Name="receivedgoil" Type="nvarchar" MaxLength="50" />
+          <Property Name="closingfuel" Type="nvarchar" MaxLength="50" />
+          <Property Name="closingfreshwater" Type="nvarchar" MaxLength="50" />
+          <Property Name="closingloil" Type="nvarchar" MaxLength="50" />
+          <Property Name="closinghoil" Type="nvarchar" MaxLength="50" />
+          <Property Name="closinggoil" Type="nvarchar" MaxLength="50" />
+          <Property Name="consumedfuel" Type="nvarchar" MaxLength="50" />
+          <Property Name="consumedfreshwater" Type="nvarchar" MaxLength="50" />
+          <Property Name="consumedloil" Type="nvarchar" MaxLength="50" />
+          <Property Name="consumedhoil" Type="nvarchar" MaxLength="50" />
+          <Property Name="consumedgoil" Type="nvarchar" MaxLength="50" />
+          <Property Name="deliveredfuel" Type="nvarchar" MaxLength="50" />
+          <Property Name="deliveredfreshwater" Type="nvarchar" MaxLength="50" />
+          <Property Name="deliveredloil" Type="nvarchar" MaxLength="50" />
+          <Property Name="deliveredhoil" Type="nvarchar" MaxLength="50" />
+          <Property Name="deliveredgoil" Type="nvarchar" MaxLength="50" />
+          <Property Name="deliveredkfcfuel" Type="nvarchar" MaxLength="50" />
+          <Property Name="deliveredkfcfreshwater" Type="nvarchar" MaxLength="50" />
+          <Property Name="deliveredkfcloil" Type="nvarchar" MaxLength="50" />
+          <Property Name="deliveredkfchoil" Type="nvarchar" MaxLength="50" />
+          <Property Name="deliveredkfcgoil" Type="nvarchar" MaxLength="50" />
+          <Property Name="menginerunninghrsfuel" Type="nvarchar" MaxLength="50" />
+          <Property Name="menginerunninghrsfreshwater" Type="nvarchar" MaxLength="50" />
+          <Property Name="menginerunninghrsloil" Type="nvarchar" MaxLength="50" />
+          <Property Name="menginerunninghrshoil" Type="nvarchar" MaxLength="50" />
+          <Property Name="menginerunninghrsgoil" Type="nvarchar" MaxLength="50" />
+          <Property Name="menginefuelconsfuel" Type="nvarchar" MaxLength="50" />
+          <Property Name="menginefuelconsfreshwater" Type="nvarchar" MaxLength="50" />
+          <Property Name="menginefuelconsloil" Type="nvarchar" MaxLength="50" />
+          <Property Name="menginefuelconshoil" Type="nvarchar" MaxLength="50" />
+          <Property Name="menginefuelconsgoil" Type="nvarchar" MaxLength="50" />
+          <Property Name="aenginerunninghrsfuel" Type="nvarchar" MaxLength="50" />
+          <Property Name="aenginerunninghrsfreshwater" Type="nvarchar" MaxLength="50" />
+          <Property Name="aenginerunninghrsloil" Type="nvarchar" MaxLength="50" />
+          <Property Name="aenginerunninghrshoil" Type="nvarchar" MaxLength="50" />
+          <Property Name="aenginerunninghrsgoil" Type="nvarchar" MaxLength="50" />
+          <Property Name="aenginefuelconsfuel" Type="nvarchar" MaxLength="50" />
+          <Property Name="aenginefuelconsfreshwater" Type="nvarchar" MaxLength="50" />
+          <Property Name="aenginefuelconsloil" Type="nvarchar" MaxLength="50" />
+          <Property Name="aenginefuelconshoil" Type="nvarchar" MaxLength="50" />
+          <Property Name="aenginefuelconsgoil" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NCategory">
+          <Key>
+            <PropertyRef Name="NCtgID" />
+          </Key>
+          <Property Name="NCtgID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NCtgName" Type="varchar" MaxLength="100" />
+          <Property Name="NCtgStatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="NForms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="450" />
+          <Property Name="NCategory" Type="int" />
+          <Property Name="Order_O" Type="int" />
+        </EntityType>
+        <EntityType Name="NLinks">
+          <Key>
+            <PropertyRef Name="NLinkId" />
+          </Key>
+          <Property Name="NLinkId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NformId" Type="int" />
+          <Property Name="Nlink" Type="varchar(max)" />
+          <Property Name="Norder" Type="int" />
+        </EntityType>
+        <EntityType Name="pob">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="head_id" Type="int" Nullable="false" />
+          <Property Name="pobcrew" Type="nvarchar" MaxLength="50" />
+          <Property Name="pobcharterers" Type="nvarchar" MaxLength="50" />
+          <Property Name="pobkfc" Type="nvarchar" MaxLength="50" />
+          <Property Name="pobothers" Type="nvarchar" MaxLength="50" />
+          <Property Name="pobtotal" Type="nvarchar" MaxLength="50" />
+          <Property Name="remarkscrew" Type="nvarchar" MaxLength="500" />
+          <Property Name="remarkscharterers" Type="nvarchar" MaxLength="500" />
+          <Property Name="remarkskfc" Type="nvarchar" MaxLength="500" />
+          <Property Name="remarksothers" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="ptwinspections">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="head_id" Type="int" Nullable="false" />
+          <Property Name="hot_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="hot_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="cold_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="cold_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="aloft_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="aloft_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="confined_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="confined_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="diving_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="diving_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="electrical_m" Type="nvarchar" MaxLength="50" />
+          <Property Name="electrical_y" Type="nvarchar" MaxLength="50" />
+          <Property Name="firstaid" Type="bit" />
+          <Property Name="firefighting" Type="bit" />
+          <Property Name="mess" Type="bit" />
+          <Property Name="toilet" Type="bit" />
+          <Property Name="pms" Type="bit" />
+          <Property Name="galley" Type="bit" />
+          <Property Name="lifesaving" Type="bit" />
+          <Property Name="towing_inspect" Type="bit" />
+          <Property Name="radio_inspect" Type="bit" />
+          <Property Name="hull_inspect" Type="bit" />
+          <Property Name="remark" Type="varchar" MaxLength="550" />
+        </EntityType>
+        <EntityType Name="Ships">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShipName" Type="varchar" MaxLength="100" />
+          <Property Name="OrderBY" Type="int" />
+        </EntityType>
+        <EntityType Name="ShoreStaffTraining">
+          <Key>
+            <PropertyRef Name="ShoreStaffTrainingID" />
+          </Key>
+          <Property Name="ShoreStaffTrainingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AttendanceSheet" Type="varchar(max)" />
+          <Property Name="EvaluationSheet" Type="varchar(max)" />
+          <Property Name="Entered_On" Type="datetime" />
+          <Property Name="Entered_By" Type="int" />
+        </EntityType>
+        <EntityType Name="Training">
+          <Key>
+            <PropertyRef Name="TrainingID" />
+          </Key>
+          <Property Name="TrainingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Training_Topic" Type="varchar(max)" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="Participant_No" Type="int" />
+          <Property Name="Duration" Type="int" />
+          <Property Name="Trainer_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Trainer_Desig" Type="varchar" MaxLength="50" />
+          <Property Name="Date" Type="varchar" MaxLength="50" />
+          <Property Name="Location" Type="varchar" MaxLength="50" />
+          <Property Name="Comments" Type="varchar(max)" />
+          <Property Name="Remark" Type="varchar(max)" />
+          <Property Name="Entered_On" Type="datetime" />
+          <Property Name="Entered_By" Type="int" />
+          <Property Name="AttendanceSheet" Type="varchar(max)" />
+          <Property Name="EvaluationSheet" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="UserEmail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginId" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Entered" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserToShip">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="ShipId" Type="int" />
+          <Property Name="EnteredOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="vessel_head">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShipsId" Type="int" Nullable="false" />
+          <Property Name="vessel" Type="nvarchar" MaxLength="50" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="date" Type="datetime" />
+          <Property Name="navigation" Type="nvarchar" MaxLength="50" />
+          <Property Name="imono" Type="nvarchar" MaxLength="50" />
+          <Property Name="manhours" Type="nvarchar" MaxLength="50" />
+          <Property Name="master" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="chiefofficer" Type="nvarchar" MaxLength="50" />
+          <Property Name="chiefengineer" Type="nvarchar" MaxLength="50" />
+          <Property Name="location" Type="varchar" MaxLength="50" />
+          <Property Name="EnteredBY" Type="int" />
+        </EntityType>
+        <Association Name="FK_Attendance_Login">
+          <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Forms_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Forms" Type="Self.Forms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Category_ID" />
+            </Principal>
+            <Dependent Role="Forms">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NForms_NCategory">
+          <End Role="NCategory" Type="Self.NCategory" Multiplicity="0..1" />
+          <End Role="NForms" Type="Self.NForms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NCategory">
+              <PropertyRef Name="NCtgID" />
+            </Principal>
+            <Dependent Role="NForms">
+              <PropertyRef Name="NCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NLinks_NForms">
+          <End Role="NForms" Type="Self.NForms" Multiplicity="0..1" />
+          <End Role="NLinks" Type="Self.NLinks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NForms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NLinks">
+              <PropertyRef Name="NformId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShipId_ShipID">
+          <End Role="Ships" Type="Self.Ships" Multiplicity="0..1" />
+          <End Role="UserToShip" Type="Self.UserToShip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ships">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserToShip">
+              <PropertyRef Name="ShipId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShipsRelation">
+          <End Role="Ships" Type="Self.Ships" Multiplicity="1" />
+          <End Role="vessel_head" Type="Self.vessel_head" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ships">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="vessel_head">
+              <PropertyRef Name="ShipsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShoreStaffTraining_Login">
+          <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+          <End Role="ShoreStaffTraining" Type="Self.ShoreStaffTraining" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShoreStaffTraining">
+              <PropertyRef Name="Entered_By" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Training_Login">
+          <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+          <End Role="Training" Type="Self.Training" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Training">
+              <PropertyRef Name="Entered_By" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserEmail_Login">
+          <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+          <End Role="UserEmail" Type="Self.UserEmail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserEmail">
+              <PropertyRef Name="LoginId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserId_UserID">
+          <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+          <End Role="UserToShip" Type="Self.UserToShip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserToShip">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vessel_head_Login">
+          <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+          <End Role="vessel_head" Type="Self.vessel_head" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="vessel_head">
+              <PropertyRef Name="EnteredBY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CatalogModelStoreContainer">
+          <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailPassword" EntityType="Self.EmailPassword" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Forms" EntityType="Self.Forms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hselaggingwaste" EntityType="Self.hselaggingwaste" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hseleadingindent" EntityType="Self.hseleadingindent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="monthly_activity" EntityType="Self.monthly_activity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="monthly_rob" EntityType="Self.monthly_rob" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NCategory" EntityType="Self.NCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NForms" EntityType="Self.NForms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NLinks" EntityType="Self.NLinks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pob" EntityType="Self.pob" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ptwinspections" EntityType="Self.ptwinspections" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ships" EntityType="Self.Ships" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShoreStaffTraining" EntityType="Self.ShoreStaffTraining" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Training" EntityType="Self.Training" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserEmail" EntityType="Self.UserEmail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserToShip" EntityType="Self.UserToShip" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vessel_head" EntityType="Self.vessel_head" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Attendance_Login" Association="Self.FK_Attendance_Login">
+            <End Role="Login" EntitySet="Login" />
+            <End Role="Attendance" EntitySet="Attendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Forms_Category" Association="Self.FK_Forms_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Forms" EntitySet="Forms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NForms_NCategory" Association="Self.FK_NForms_NCategory">
+            <End Role="NCategory" EntitySet="NCategory" />
+            <End Role="NForms" EntitySet="NForms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NLinks_NForms" Association="Self.FK_NLinks_NForms">
+            <End Role="NForms" EntitySet="NForms" />
+            <End Role="NLinks" EntitySet="NLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShipId_ShipID" Association="Self.FK_ShipId_ShipID">
+            <End Role="Ships" EntitySet="Ships" />
+            <End Role="UserToShip" EntitySet="UserToShip" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShipsRelation" Association="Self.FK_ShipsRelation">
+            <End Role="Ships" EntitySet="Ships" />
+            <End Role="vessel_head" EntitySet="vessel_head" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShoreStaffTraining_Login" Association="Self.FK_ShoreStaffTraining_Login">
+            <End Role="Login" EntitySet="Login" />
+            <End Role="ShoreStaffTraining" EntitySet="ShoreStaffTraining" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Training_Login" Association="Self.FK_Training_Login">
+            <End Role="Login" EntitySet="Login" />
+            <End Role="Training" EntitySet="Training" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserEmail_Login" Association="Self.FK_UserEmail_Login">
+            <End Role="Login" EntitySet="Login" />
+            <End Role="UserEmail" EntitySet="UserEmail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserId_UserID" Association="Self.FK_UserId_UserID">
+            <End Role="Login" EntitySet="Login" />
+            <End Role="UserToShip" EntitySet="UserToShip" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vessel_head_Login" Association="Self.FK_vessel_head_Login">
+            <End Role="Login" EntitySet="Login" />
+            <End Role="vessel_head" EntitySet="vessel_head" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CatalogModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CatalogEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Attendances" EntityType="CatalogModel.Attendance" />
+          <EntitySet Name="Categories" EntityType="CatalogModel.Category" />
+          <EntitySet Name="EmailPasswords" EntityType="CatalogModel.EmailPassword" />
+          <EntitySet Name="Forms" EntityType="CatalogModel.Form" />
+          <EntitySet Name="hselaggingwastes" EntityType="CatalogModel.hselaggingwaste" />
+          <EntitySet Name="hseleadingindents" EntityType="CatalogModel.hseleadingindent" />
+          <EntitySet Name="Logins" EntityType="CatalogModel.Login" />
+          <EntitySet Name="monthly_activity" EntityType="CatalogModel.monthly_activity" />
+          <EntitySet Name="monthly_rob" EntityType="CatalogModel.monthly_rob" />
+          <EntitySet Name="NCategories" EntityType="CatalogModel.NCategory" />
+          <EntitySet Name="NForms" EntityType="CatalogModel.NForm" />
+          <EntitySet Name="NLinks" EntityType="CatalogModel.NLink" />
+          <EntitySet Name="pobs" EntityType="CatalogModel.pob" />
+          <EntitySet Name="ptwinspections" EntityType="CatalogModel.ptwinspection" />
+          <EntitySet Name="Ships" EntityType="CatalogModel.Ship" />
+          <EntitySet Name="ShoreStaffTrainings" EntityType="CatalogModel.ShoreStaffTraining" />
+          <EntitySet Name="Trainings" EntityType="CatalogModel.Training" />
+          <EntitySet Name="UserEmails" EntityType="CatalogModel.UserEmail" />
+          <EntitySet Name="UserToShips" EntityType="CatalogModel.UserToShip" />
+          <EntitySet Name="vessel_head" EntityType="CatalogModel.vessel_head" />
+          <AssociationSet Name="FK_Attendance_Login" Association="CatalogModel.FK_Attendance_Login">
+            <End Role="Login" EntitySet="Logins" />
+            <End Role="Attendance" EntitySet="Attendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Forms_Category" Association="CatalogModel.FK_Forms_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Form" EntitySet="Forms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShoreStaffTraining_Login" Association="CatalogModel.FK_ShoreStaffTraining_Login">
+            <End Role="Login" EntitySet="Logins" />
+            <End Role="ShoreStaffTraining" EntitySet="ShoreStaffTrainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Training_Login" Association="CatalogModel.FK_Training_Login">
+            <End Role="Login" EntitySet="Logins" />
+            <End Role="Training" EntitySet="Trainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserEmail_Login" Association="CatalogModel.FK_UserEmail_Login">
+            <End Role="Login" EntitySet="Logins" />
+            <End Role="UserEmail" EntitySet="UserEmails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserId_UserID" Association="CatalogModel.FK_UserId_UserID">
+            <End Role="Login" EntitySet="Logins" />
+            <End Role="UserToShip" EntitySet="UserToShips" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vessel_head_Login" Association="CatalogModel.FK_vessel_head_Login">
+            <End Role="Login" EntitySet="Logins" />
+            <End Role="vessel_head" EntitySet="vessel_head" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NForms_NCategory" Association="CatalogModel.FK_NForms_NCategory">
+            <End Role="NCategory" EntitySet="NCategories" />
+            <End Role="NForm" EntitySet="NForms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NLinks_NForms" Association="CatalogModel.FK_NLinks_NForms">
+            <End Role="NForm" EntitySet="NForms" />
+            <End Role="NLink" EntitySet="NLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShipId_ShipID" Association="CatalogModel.FK_ShipId_ShipID">
+            <End Role="Ship" EntitySet="Ships" />
+            <End Role="UserToShip" EntitySet="UserToShips" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShipsRelation" Association="CatalogModel.FK_ShipsRelation">
+            <End Role="Ship" EntitySet="Ships" />
+            <End Role="vessel_head" EntitySet="vessel_head" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NForms_NCategory1" Association="CatalogModel.FK_NForms_NCategory1">
+            <End Role="NCategory" EntitySet="NCategories" />
+            <End Role="NForm" EntitySet="NForms" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="AttendanceId" />
+          </Key>
+          <Property Name="AttendanceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FileUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EnteredOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Login" Relationship="CatalogModel.FK_Attendance_Login" FromRole="Attendance" ToRole="Login" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Category_ID" />
+          </Key>
+          <Property Name="Category_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Forms" Relationship="CatalogModel.FK_Forms_Category" FromRole="Category" ToRole="Form" />
+        </EntityType>
+        <EntityType Name="EmailPassword">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginId" Type="Int32" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Entered" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Form">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="Link" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="Int32" />
+          <Property Name="Order_O" Type="Int32" />
+          <NavigationProperty Name="Category1" Relationship="CatalogModel.FK_Forms_Category" FromRole="Form" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="hselaggingwaste">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="head_id" Type="Int32" Nullable="false" />
+          <Property Name="warning_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="warning_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="complaints_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="complaints_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fines_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fines_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="observations_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="observations_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="injury_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="injury_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="plastic_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="plastic_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="food_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="food_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cookingoil_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cookingoil_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="metal_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="metal_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="seweragewater_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="seweragewater_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hazardous_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hazardous_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="others_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="others_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="hseleadingindent">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="head_id" Type="Int32" Nullable="false" />
+          <Property Name="nomeeting_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nomeeting_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nosuggestion_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nosuggestion_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="noemergency_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="noemergency_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nopermit_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nopermit_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="notbt_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="notbt_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nosafetyflashes_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nosafetyflashes_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="notraining_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="notraining_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="notraininghours_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="notraininghours_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="notrainingpersons_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="notrainingpersons_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nosafetyflashed_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nosafetyflashed_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ltic_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ltic_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rwdc_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rwdc_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fac_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fac_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="oi_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="oi_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pdi_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pdi_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ei_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ei_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nmi_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nmi_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mtc_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mtc_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Code_Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Attendances" Relationship="CatalogModel.FK_Attendance_Login" FromRole="Login" ToRole="Attendance" />
+          <NavigationProperty Name="ShoreStaffTrainings" Relationship="CatalogModel.FK_ShoreStaffTraining_Login" FromRole="Login" ToRole="ShoreStaffTraining" />
+          <NavigationProperty Name="Trainings" Relationship="CatalogModel.FK_Training_Login" FromRole="Login" ToRole="Training" />
+          <NavigationProperty Name="UserEmails" Relationship="CatalogModel.FK_UserEmail_Login" FromRole="Login" ToRole="UserEmail" />
+          <NavigationProperty Name="UserToShips" Relationship="CatalogModel.FK_UserId_UserID" FromRole="Login" ToRole="UserToShip" />
+          <NavigationProperty Name="vessel_head" Relationship="CatalogModel.FK_vessel_head_Login" FromRole="Login" ToRole="vessel_head" />
+        </EntityType>
+        <EntityType Name="monthly_activity">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="head_id" Type="Int32" Nullable="false" />
+          <Property Name="steamingtime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="steamingconsumption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="steamingmcr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="anchoragetime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="anchorageconsumption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="anchoragemcr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="berthtime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="berthconsumption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="berthmcr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="towingtime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="towingconsumption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="towingmcr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="downtime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="downconsumption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="downmcr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="meneauveringtime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="meneauveringconsumption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="meneauveringmcr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="otherstime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="othersconsumption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="othersmcr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="remarkstime" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="remarksconsumption" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="remarksmcr" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="monthly_rob">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="head_id" Type="Int32" Nullable="false" />
+          <Property Name="openingfuel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="openingfreshwater" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="openingloil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="openinghoil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="openinggoil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="receivedfuel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="receivedfreshwater" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="receivedloil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="receivedhoil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="receivedgoil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="closingfuel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="closingfreshwater" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="closingloil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="closinghoil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="closinggoil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="consumedfuel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="consumedfreshwater" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="consumedloil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="consumedhoil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="consumedgoil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="deliveredfuel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="deliveredfreshwater" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="deliveredloil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="deliveredhoil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="deliveredgoil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="deliveredkfcfuel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="deliveredkfcfreshwater" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="deliveredkfcloil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="deliveredkfchoil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="deliveredkfcgoil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="menginerunninghrsfuel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="menginerunninghrsfreshwater" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="menginerunninghrsloil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="menginerunninghrshoil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="menginerunninghrsgoil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="menginefuelconsfuel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="menginefuelconsfreshwater" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="menginefuelconsloil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="menginefuelconshoil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="menginefuelconsgoil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="aenginerunninghrsfuel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="aenginerunninghrsfreshwater" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="aenginerunninghrsloil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="aenginerunninghrshoil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="aenginerunninghrsgoil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="aenginefuelconsfuel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="aenginefuelconsfreshwater" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="aenginefuelconsloil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="aenginefuelconshoil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="aenginefuelconsgoil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="NCategory">
+          <Key>
+            <PropertyRef Name="NCtgID" />
+          </Key>
+          <Property Name="NCtgID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NCtgName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NCtgStatus" Type="Boolean" />
+          <NavigationProperty Name="NForm" Relationship="CatalogModel.FK_NForms_NCategory" FromRole="NCategory" ToRole="NForm" />
+          <NavigationProperty Name="NForms" Relationship="CatalogModel.FK_NForms_NCategory1" FromRole="NCategory" ToRole="NForm" />
+        </EntityType>
+        <EntityType Name="NForm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="NCategory" Type="Int32" />
+          <Property Name="Order_O" Type="Int32" />
+          <NavigationProperty Name="NCategory1" Relationship="CatalogModel.FK_NForms_NCategory" FromRole="NForm" ToRole="NCategory" />
+          <NavigationProperty Name="NLinks" Relationship="CatalogModel.FK_NLinks_NForms" FromRole="NForm" ToRole="NLink" />
+          <NavigationProperty Name="NCategory11" Relationship="CatalogModel.FK_NForms_NCategory1" FromRole="NForm" ToRole="NCategory" />
+        </EntityType>
+        <EntityType Name="NLink">
+          <Key>
+            <PropertyRef Name="NLinkId" />
+          </Key>
+          <Property Name="NLinkId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NformId" Type="Int32" />
+          <Property Name="Nlink1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NForm" Relationship="CatalogModel.FK_NLinks_NForms" FromRole="NLink" ToRole="NForm" />
+          <Property Name="Norder" Type="Int32" />
+        </EntityType>
+        <EntityType Name="pob">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="head_id" Type="Int32" Nullable="false" />
+          <Property Name="pobcrew" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pobcharterers" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pobkfc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pobothers" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pobtotal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="remarkscrew" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="remarkscharterers" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="remarkskfc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="remarksothers" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ptwinspection">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="head_id" Type="Int32" Nullable="false" />
+          <Property Name="hot_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hot_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cold_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cold_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="aloft_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="aloft_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="confined_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="confined_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="diving_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="diving_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="electrical_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="electrical_y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="firstaid" Type="Boolean" />
+          <Property Name="firefighting" Type="Boolean" />
+          <Property Name="mess" Type="Boolean" />
+          <Property Name="toilet" Type="Boolean" />
+          <Property Name="pms" Type="Boolean" />
+          <Property Name="galley" Type="Boolean" />
+          <Property Name="lifesaving" Type="Boolean" />
+          <Property Name="towing_inspect" Type="Boolean" />
+          <Property Name="radio_inspect" Type="Boolean" />
+          <Property Name="hull_inspect" Type="Boolean" />
+          <Property Name="remark" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Ship">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShipName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OrderBY" Type="Int32" />
+          <NavigationProperty Name="UserToShips" Relationship="CatalogModel.FK_ShipId_ShipID" FromRole="Ship" ToRole="UserToShip" />
+          <NavigationProperty Name="vessel_head" Relationship="CatalogModel.FK_ShipsRelation" FromRole="Ship" ToRole="vessel_head" />
+        </EntityType>
+        <EntityType Name="ShoreStaffTraining">
+          <Key>
+            <PropertyRef Name="ShoreStaffTrainingID" />
+          </Key>
+          <Property Name="ShoreStaffTrainingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AttendanceSheet" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EvaluationSheet" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Entered_On" Type="DateTime" Precision="3" />
+          <Property Name="Entered_By" Type="Int32" />
+          <NavigationProperty Name="Login" Relationship="CatalogModel.FK_ShoreStaffTraining_Login" FromRole="ShoreStaffTraining" ToRole="Login" />
+        </EntityType>
+        <EntityType Name="Training">
+          <Key>
+            <PropertyRef Name="TrainingID" />
+          </Key>
+          <Property Name="TrainingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Training_Topic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Participant_No" Type="Int32" />
+          <Property Name="Duration" Type="Int32" />
+          <Property Name="Trainer_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Trainer_Desig" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Entered_On" Type="DateTime" Precision="3" />
+          <Property Name="Entered_By" Type="Int32" />
+          <Property Name="AttendanceSheet" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EvaluationSheet" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Login" Relationship="CatalogModel.FK_Training_Login" FromRole="Training" ToRole="Login" />
+        </EntityType>
+        <EntityType Name="UserEmail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginId" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Entered" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Login" Relationship="CatalogModel.FK_UserEmail_Login" FromRole="UserEmail" ToRole="Login" />
+        </EntityType>
+        <EntityType Name="UserToShip">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="ShipId" Type="Int32" />
+          <Property Name="EnteredOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Login" Relationship="CatalogModel.FK_UserId_UserID" FromRole="UserToShip" ToRole="Login" />
+          <NavigationProperty Name="Ship" Relationship="CatalogModel.FK_ShipId_ShipID" FromRole="UserToShip" ToRole="Ship" />
+        </EntityType>
+        <EntityType Name="vessel_head">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShipsId" Type="Int32" Nullable="false" />
+          <Property Name="vessel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="navigation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="imono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="manhours" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="master" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="chiefofficer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="chiefengineer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EnteredBY" Type="Int32" />
+          <NavigationProperty Name="Login" Relationship="CatalogModel.FK_vessel_head_Login" FromRole="vessel_head" ToRole="Login" />
+          <NavigationProperty Name="Ship" Relationship="CatalogModel.FK_ShipsRelation" FromRole="vessel_head" ToRole="Ship" />
+        </EntityType>
+        <Association Name="FK_Attendance_Login">
+          <End Type="CatalogModel.Login" Role="Login" Multiplicity="0..1" />
+          <End Type="CatalogModel.Attendance" Role="Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Forms_Category">
+          <End Type="CatalogModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="CatalogModel.Form" Role="Form" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Category_ID" />
+            </Principal>
+            <Dependent Role="Form">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShoreStaffTraining_Login">
+          <End Type="CatalogModel.Login" Role="Login" Multiplicity="0..1" />
+          <End Type="CatalogModel.ShoreStaffTraining" Role="ShoreStaffTraining" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShoreStaffTraining">
+              <PropertyRef Name="Entered_By" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Training_Login">
+          <End Type="CatalogModel.Login" Role="Login" Multiplicity="0..1" />
+          <End Type="CatalogModel.Training" Role="Training" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Training">
+              <PropertyRef Name="Entered_By" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserEmail_Login">
+          <End Type="CatalogModel.Login" Role="Login" Multiplicity="0..1" />
+          <End Type="CatalogModel.UserEmail" Role="UserEmail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserEmail">
+              <PropertyRef Name="LoginId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserId_UserID">
+          <End Type="CatalogModel.Login" Role="Login" Multiplicity="0..1" />
+          <End Type="CatalogModel.UserToShip" Role="UserToShip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserToShip">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vessel_head_Login">
+          <End Type="CatalogModel.Login" Role="Login" Multiplicity="0..1" />
+          <End Type="CatalogModel.vessel_head" Role="vessel_head" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="vessel_head">
+              <PropertyRef Name="EnteredBY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NForms_NCategory">
+          <End Type="CatalogModel.NCategory" Role="NCategory" Multiplicity="1" />
+          <End Type="CatalogModel.NForm" Role="NForm" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="NCategory">
+              <PropertyRef Name="NCtgID" />
+            </Principal>
+            <Dependent Role="NForm">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NLinks_NForms">
+          <End Type="CatalogModel.NForm" Role="NForm" Multiplicity="0..1" />
+          <End Type="CatalogModel.NLink" Role="NLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NForm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NLink">
+              <PropertyRef Name="NformId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShipId_ShipID">
+          <End Type="CatalogModel.Ship" Role="Ship" Multiplicity="0..1" />
+          <End Type="CatalogModel.UserToShip" Role="UserToShip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ship">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserToShip">
+              <PropertyRef Name="ShipId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShipsRelation">
+          <End Type="CatalogModel.Ship" Role="Ship" Multiplicity="1" />
+          <End Type="CatalogModel.vessel_head" Role="vessel_head" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ship">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="vessel_head">
+              <PropertyRef Name="ShipsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NForms_NCategory1">
+          <End Type="CatalogModel.NCategory" Role="NCategory" Multiplicity="0..1" />
+          <End Type="CatalogModel.NForm" Role="NForm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NCategory">
+              <PropertyRef Name="NCtgID" />
+            </Principal>
+            <Dependent Role="NForm">
+              <PropertyRef Name="NCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CatalogModelStoreContainer" CdmEntityContainer="CatalogEntities">
+          <EntitySetMapping Name="Attendances">
+            <EntityTypeMapping TypeName="CatalogModel.Attendance">
+              <MappingFragment StoreEntitySet="Attendance">
+                <ScalarProperty Name="EnteredOn" ColumnName="EnteredOn" />
+                <ScalarProperty Name="FileUrl" ColumnName="FileUrl" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AttendanceId" ColumnName="AttendanceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="CatalogModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailPasswords">
+            <EntityTypeMapping TypeName="CatalogModel.EmailPassword">
+              <MappingFragment StoreEntitySet="EmailPassword">
+                <ScalarProperty Name="Entered" ColumnName="Entered" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Forms">
+            <EntityTypeMapping TypeName="CatalogModel.Form">
+              <MappingFragment StoreEntitySet="Forms">
+                <ScalarProperty Name="Order_O" ColumnName="Order_O" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hselaggingwastes">
+            <EntityTypeMapping TypeName="CatalogModel.hselaggingwaste">
+              <MappingFragment StoreEntitySet="hselaggingwaste">
+                <ScalarProperty Name="others_y" ColumnName="others_y" />
+                <ScalarProperty Name="others_m" ColumnName="others_m" />
+                <ScalarProperty Name="hazardous_y" ColumnName="hazardous_y" />
+                <ScalarProperty Name="hazardous_m" ColumnName="hazardous_m" />
+                <ScalarProperty Name="seweragewater_y" ColumnName="seweragewater_y" />
+                <ScalarProperty Name="seweragewater_m" ColumnName="seweragewater_m" />
+                <ScalarProperty Name="metal_y" ColumnName="metal_y" />
+                <ScalarProperty Name="metal_m" ColumnName="metal_m" />
+                <ScalarProperty Name="cookingoil_y" ColumnName="cookingoil_y" />
+                <ScalarProperty Name="cookingoil_m" ColumnName="cookingoil_m" />
+                <ScalarProperty Name="food_y" ColumnName="food_y" />
+                <ScalarProperty Name="food_m" ColumnName="food_m" />
+                <ScalarProperty Name="plastic_y" ColumnName="plastic_y" />
+                <ScalarProperty Name="plastic_m" ColumnName="plastic_m" />
+                <ScalarProperty Name="injury_y" ColumnName="injury_y" />
+                <ScalarProperty Name="injury_m" ColumnName="injury_m" />
+                <ScalarProperty Name="observations_y" ColumnName="observations_y" />
+                <ScalarProperty Name="observations_m" ColumnName="observations_m" />
+                <ScalarProperty Name="fines_y" ColumnName="fines_y" />
+                <ScalarProperty Name="fines_m" ColumnName="fines_m" />
+                <ScalarProperty Name="complaints_y" ColumnName="complaints_y" />
+                <ScalarProperty Name="complaints_m" ColumnName="complaints_m" />
+                <ScalarProperty Name="warning_y" ColumnName="warning_y" />
+                <ScalarProperty Name="warning_m" ColumnName="warning_m" />
+                <ScalarProperty Name="head_id" ColumnName="head_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hseleadingindents">
+            <EntityTypeMapping TypeName="CatalogModel.hseleadingindent">
+              <MappingFragment StoreEntitySet="hseleadingindent">
+                <ScalarProperty Name="mtc_y" ColumnName="mtc_y" />
+                <ScalarProperty Name="mtc_m" ColumnName="mtc_m" />
+                <ScalarProperty Name="nmi_y" ColumnName="nmi_y" />
+                <ScalarProperty Name="nmi_m" ColumnName="nmi_m" />
+                <ScalarProperty Name="ei_y" ColumnName="ei_y" />
+                <ScalarProperty Name="ei_m" ColumnName="ei_m" />
+                <ScalarProperty Name="pdi_y" ColumnName="pdi_y" />
+                <ScalarProperty Name="pdi_m" ColumnName="pdi_m" />
+                <ScalarProperty Name="oi_y" ColumnName="oi_y" />
+                <ScalarProperty Name="oi_m" ColumnName="oi_m" />
+                <ScalarProperty Name="fac_y" ColumnName="fac_y" />
+                <ScalarProperty Name="fac_m" ColumnName="fac_m" />
+                <ScalarProperty Name="rwdc_y" ColumnName="rwdc_y" />
+                <ScalarProperty Name="rwdc_m" ColumnName="rwdc_m" />
+                <ScalarProperty Name="ltic_y" ColumnName="ltic_y" />
+                <ScalarProperty Name="ltic_m" ColumnName="ltic_m" />
+                <ScalarProperty Name="nosafetyflashed_y" ColumnName="nosafetyflashed_y" />
+                <ScalarProperty Name="nosafetyflashed_m" ColumnName="nosafetyflashed_m" />
+                <ScalarProperty Name="notrainingpersons_y" ColumnName="notrainingpersons_y" />
+                <ScalarProperty Name="notrainingpersons_m" ColumnName="notrainingpersons_m" />
+                <ScalarProperty Name="notraininghours_y" ColumnName="notraininghours_y" />
+                <ScalarProperty Name="notraininghours_m" ColumnName="notraininghours_m" />
+                <ScalarProperty Name="notraining_y" ColumnName="notraining_y" />
+                <ScalarProperty Name="notraining_m" ColumnName="notraining_m" />
+                <ScalarProperty Name="nosafetyflashes_y" ColumnName="nosafetyflashes_y" />
+                <ScalarProperty Name="nosafetyflashes_m" ColumnName="nosafetyflashes_m" />
+                <ScalarProperty Name="notbt_y" ColumnName="notbt_y" />
+                <ScalarProperty Name="notbt_m" ColumnName="notbt_m" />
+                <ScalarProperty Name="nopermit_y" ColumnName="nopermit_y" />
+                <ScalarProperty Name="nopermit_m" ColumnName="nopermit_m" />
+                <ScalarProperty Name="noemergency_y" ColumnName="noemergency_y" />
+                <ScalarProperty Name="noemergency_m" ColumnName="noemergency_m" />
+                <ScalarProperty Name="nosuggestion_y" ColumnName="nosuggestion_y" />
+                <ScalarProperty Name="nosuggestion_m" ColumnName="nosuggestion_m" />
+                <ScalarProperty Name="nomeeting_y" ColumnName="nomeeting_y" />
+                <ScalarProperty Name="nomeeting_m" ColumnName="nomeeting_m" />
+                <ScalarProperty Name="head_id" ColumnName="head_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="CatalogModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Code_Created" ColumnName="Code_Created" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="monthly_activity">
+            <EntityTypeMapping TypeName="CatalogModel.monthly_activity">
+              <MappingFragment StoreEntitySet="monthly_activity">
+                <ScalarProperty Name="remarksmcr" ColumnName="remarksmcr" />
+                <ScalarProperty Name="remarksconsumption" ColumnName="remarksconsumption" />
+                <ScalarProperty Name="remarkstime" ColumnName="remarkstime" />
+                <ScalarProperty Name="othersmcr" ColumnName="othersmcr" />
+                <ScalarProperty Name="othersconsumption" ColumnName="othersconsumption" />
+                <ScalarProperty Name="otherstime" ColumnName="otherstime" />
+                <ScalarProperty Name="meneauveringmcr" ColumnName="meneauveringmcr" />
+                <ScalarProperty Name="meneauveringconsumption" ColumnName="meneauveringconsumption" />
+                <ScalarProperty Name="meneauveringtime" ColumnName="meneauveringtime" />
+                <ScalarProperty Name="downmcr" ColumnName="downmcr" />
+                <ScalarProperty Name="downconsumption" ColumnName="downconsumption" />
+                <ScalarProperty Name="downtime" ColumnName="downtime" />
+                <ScalarProperty Name="towingmcr" ColumnName="towingmcr" />
+                <ScalarProperty Name="towingconsumption" ColumnName="towingconsumption" />
+                <ScalarProperty Name="towingtime" ColumnName="towingtime" />
+                <ScalarProperty Name="berthmcr" ColumnName="berthmcr" />
+                <ScalarProperty Name="berthconsumption" ColumnName="berthconsumption" />
+                <ScalarProperty Name="berthtime" ColumnName="berthtime" />
+                <ScalarProperty Name="anchoragemcr" ColumnName="anchoragemcr" />
+                <ScalarProperty Name="anchorageconsumption" ColumnName="anchorageconsumption" />
+                <ScalarProperty Name="anchoragetime" ColumnName="anchoragetime" />
+                <ScalarProperty Name="steamingmcr" ColumnName="steamingmcr" />
+                <ScalarProperty Name="steamingconsumption" ColumnName="steamingconsumption" />
+                <ScalarProperty Name="steamingtime" ColumnName="steamingtime" />
+                <ScalarProperty Name="head_id" ColumnName="head_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="monthly_rob">
+            <EntityTypeMapping TypeName="CatalogModel.monthly_rob">
+              <MappingFragment StoreEntitySet="monthly_rob">
+                <ScalarProperty Name="aenginefuelconsgoil" ColumnName="aenginefuelconsgoil" />
+                <ScalarProperty Name="aenginefuelconshoil" ColumnName="aenginefuelconshoil" />
+                <ScalarProperty Name="aenginefuelconsloil" ColumnName="aenginefuelconsloil" />
+                <ScalarProperty Name="aenginefuelconsfreshwater" ColumnName="aenginefuelconsfreshwater" />
+                <ScalarProperty Name="aenginefuelconsfuel" ColumnName="aenginefuelconsfuel" />
+                <ScalarProperty Name="aenginerunninghrsgoil" ColumnName="aenginerunninghrsgoil" />
+                <ScalarProperty Name="aenginerunninghrshoil" ColumnName="aenginerunninghrshoil" />
+                <ScalarProperty Name="aenginerunninghrsloil" ColumnName="aenginerunninghrsloil" />
+                <ScalarProperty Name="aenginerunninghrsfreshwater" ColumnName="aenginerunninghrsfreshwater" />
+                <ScalarProperty Name="aenginerunninghrsfuel" ColumnName="aenginerunninghrsfuel" />
+                <ScalarProperty Name="menginefuelconsgoil" ColumnName="menginefuelconsgoil" />
+                <ScalarProperty Name="menginefuelconshoil" ColumnName="menginefuelconshoil" />
+                <ScalarProperty Name="menginefuelconsloil" ColumnName="menginefuelconsloil" />
+                <ScalarProperty Name="menginefuelconsfreshwater" ColumnName="menginefuelconsfreshwater" />
+                <ScalarProperty Name="menginefuelconsfuel" ColumnName="menginefuelconsfuel" />
+                <ScalarProperty Name="menginerunninghrsgoil" ColumnName="menginerunninghrsgoil" />
+                <ScalarProperty Name="menginerunninghrshoil" ColumnName="menginerunninghrshoil" />
+                <ScalarProperty Name="menginerunninghrsloil" ColumnName="menginerunninghrsloil" />
+                <ScalarProperty Name="menginerunninghrsfreshwater" ColumnName="menginerunninghrsfreshwater" />
+                <ScalarProperty Name="menginerunninghrsfuel" ColumnName="menginerunninghrsfuel" />
+                <ScalarProperty Name="deliveredkfcgoil" ColumnName="deliveredkfcgoil" />
+                <ScalarProperty Name="deliveredkfchoil" ColumnName="deliveredkfchoil" />
+                <ScalarProperty Name="deliveredkfcloil" ColumnName="deliveredkfcloil" />
+                <ScalarProperty Name="deliveredkfcfreshwater" ColumnName="deliveredkfcfreshwater" />
+                <ScalarProperty Name="deliveredkfcfuel" ColumnName="deliveredkfcfuel" />
+                <ScalarProperty Name="deliveredgoil" ColumnName="deliveredgoil" />
+                <ScalarProperty Name="deliveredhoil" ColumnName="deliveredhoil" />
+                <ScalarProperty Name="deliveredloil" ColumnName="deliveredloil" />
+                <ScalarProperty Name="deliveredfreshwater" ColumnName="deliveredfreshwater" />
+                <ScalarProperty Name="deliveredfuel" ColumnName="deliveredfuel" />
+                <ScalarProperty Name="consumedgoil" ColumnName="consumedgoil" />
+                <ScalarProperty Name="consumedhoil" ColumnName="consumedhoil" />
+                <ScalarProperty Name="consumedloil" ColumnName="consumedloil" />
+                <ScalarProperty Name="consumedfreshwater" ColumnName="consumedfreshwater" />
+                <ScalarProperty Name="consumedfuel" ColumnName="consumedfuel" />
+                <ScalarProperty Name="closinggoil" ColumnName="closinggoil" />
+                <ScalarProperty Name="closinghoil" ColumnName="closinghoil" />
+                <ScalarProperty Name="closingloil" ColumnName="closingloil" />
+                <ScalarProperty Name="closingfreshwater" ColumnName="closingfreshwater" />
+                <ScalarProperty Name="closingfuel" ColumnName="closingfuel" />
+                <ScalarProperty Name="receivedgoil" ColumnName="receivedgoil" />
+                <ScalarProperty Name="receivedhoil" ColumnName="receivedhoil" />
+                <ScalarProperty Name="receivedloil" ColumnName="receivedloil" />
+                <ScalarProperty Name="receivedfreshwater" ColumnName="receivedfreshwater" />
+                <ScalarProperty Name="receivedfuel" ColumnName="receivedfuel" />
+                <ScalarProperty Name="openinggoil" ColumnName="openinggoil" />
+                <ScalarProperty Name="openinghoil" ColumnName="openinghoil" />
+                <ScalarProperty Name="openingloil" ColumnName="openingloil" />
+                <ScalarProperty Name="openingfreshwater" ColumnName="openingfreshwater" />
+                <ScalarProperty Name="openingfuel" ColumnName="openingfuel" />
+                <ScalarProperty Name="head_id" ColumnName="head_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NCategories">
+            <EntityTypeMapping TypeName="CatalogModel.NCategory">
+              <MappingFragment StoreEntitySet="NCategory">
+                <ScalarProperty Name="NCtgStatus" ColumnName="NCtgStatus" />
+                <ScalarProperty Name="NCtgName" ColumnName="NCtgName" />
+                <ScalarProperty Name="NCtgID" ColumnName="NCtgID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NForms">
+            <EntityTypeMapping TypeName="CatalogModel.NForm">
+              <MappingFragment StoreEntitySet="NForms">
+                <ScalarProperty Name="Order_O" ColumnName="Order_O" />
+                <ScalarProperty Name="NCategory" ColumnName="NCategory" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NLinks">
+            <EntityTypeMapping TypeName="CatalogModel.NLink">
+              <MappingFragment StoreEntitySet="NLinks">
+                <ScalarProperty Name="Norder" ColumnName="Norder" />
+                <ScalarProperty Name="Nlink1" ColumnName="Nlink" />
+                <ScalarProperty Name="NformId" ColumnName="NformId" />
+                <ScalarProperty Name="NLinkId" ColumnName="NLinkId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pobs">
+            <EntityTypeMapping TypeName="CatalogModel.pob">
+              <MappingFragment StoreEntitySet="pob">
+                <ScalarProperty Name="remarksothers" ColumnName="remarksothers" />
+                <ScalarProperty Name="remarkskfc" ColumnName="remarkskfc" />
+                <ScalarProperty Name="remarkscharterers" ColumnName="remarkscharterers" />
+                <ScalarProperty Name="remarkscrew" ColumnName="remarkscrew" />
+                <ScalarProperty Name="pobtotal" ColumnName="pobtotal" />
+                <ScalarProperty Name="pobothers" ColumnName="pobothers" />
+                <ScalarProperty Name="pobkfc" ColumnName="pobkfc" />
+                <ScalarProperty Name="pobcharterers" ColumnName="pobcharterers" />
+                <ScalarProperty Name="pobcrew" ColumnName="pobcrew" />
+                <ScalarProperty Name="head_id" ColumnName="head_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ptwinspections">
+            <EntityTypeMapping TypeName="CatalogModel.ptwinspection">
+              <MappingFragment StoreEntitySet="ptwinspections">
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="hull_inspect" ColumnName="hull_inspect" />
+                <ScalarProperty Name="radio_inspect" ColumnName="radio_inspect" />
+                <ScalarProperty Name="towing_inspect" ColumnName="towing_inspect" />
+                <ScalarProperty Name="lifesaving" ColumnName="lifesaving" />
+                <ScalarProperty Name="galley" ColumnName="galley" />
+                <ScalarProperty Name="pms" ColumnName="pms" />
+                <ScalarProperty Name="toilet" ColumnName="toilet" />
+                <ScalarProperty Name="mess" ColumnName="mess" />
+                <ScalarProperty Name="firefighting" ColumnName="firefighting" />
+                <ScalarProperty Name="firstaid" ColumnName="firstaid" />
+                <ScalarProperty Name="electrical_y" ColumnName="electrical_y" />
+                <ScalarProperty Name="electrical_m" ColumnName="electrical_m" />
+                <ScalarProperty Name="diving_y" ColumnName="diving_y" />
+                <ScalarProperty Name="diving_m" ColumnName="diving_m" />
+                <ScalarProperty Name="confined_y" ColumnName="confined_y" />
+                <ScalarProperty Name="confined_m" ColumnName="confined_m" />
+                <ScalarProperty Name="aloft_y" ColumnName="aloft_y" />
+                <ScalarProperty Name="aloft_m" ColumnName="aloft_m" />
+                <ScalarProperty Name="cold_y" ColumnName="cold_y" />
+                <ScalarProperty Name="cold_m" ColumnName="cold_m" />
+                <ScalarProperty Name="hot_y" ColumnName="hot_y" />
+                <ScalarProperty Name="hot_m" ColumnName="hot_m" />
+                <ScalarProperty Name="head_id" ColumnName="head_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ships">
+            <EntityTypeMapping TypeName="CatalogModel.Ship">
+              <MappingFragment StoreEntitySet="Ships">
+                <ScalarProperty Name="OrderBY" ColumnName="OrderBY" />
+                <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShoreStaffTrainings">
+            <EntityTypeMapping TypeName="CatalogModel.ShoreStaffTraining">
+              <MappingFragment StoreEntitySet="ShoreStaffTraining">
+                <ScalarProperty Name="Entered_By" ColumnName="Entered_By" />
+                <ScalarProperty Name="Entered_On" ColumnName="Entered_On" />
+                <ScalarProperty Name="EvaluationSheet" ColumnName="EvaluationSheet" />
+                <ScalarProperty Name="AttendanceSheet" ColumnName="AttendanceSheet" />
+                <ScalarProperty Name="ShoreStaffTrainingID" ColumnName="ShoreStaffTrainingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trainings">
+            <EntityTypeMapping TypeName="CatalogModel.Training">
+              <MappingFragment StoreEntitySet="Training">
+                <ScalarProperty Name="EvaluationSheet" ColumnName="EvaluationSheet" />
+                <ScalarProperty Name="AttendanceSheet" ColumnName="AttendanceSheet" />
+                <ScalarProperty Name="Entered_By" ColumnName="Entered_By" />
+                <ScalarProperty Name="Entered_On" ColumnName="Entered_On" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Trainer_Desig" ColumnName="Trainer_Desig" />
+                <ScalarProperty Name="Trainer_Name" ColumnName="Trainer_Name" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Participant_No" ColumnName="Participant_No" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Training_Topic" ColumnName="Training_Topic" />
+                <ScalarProperty Name="TrainingID" ColumnName="TrainingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserEmails">
+            <EntityTypeMapping TypeName="CatalogModel.UserEmail">
+              <MappingFragment StoreEntitySet="UserEmail">
+                <ScalarProperty Name="Entered" ColumnName="Entered" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserToShips">
+            <EntityTypeMapping TypeName="CatalogModel.UserToShip">
+              <MappingFragment StoreEntitySet="UserToShip">
+                <ScalarProperty Name="EnteredOn" ColumnName="EnteredOn" />
+                <ScalarProperty Name="ShipId" ColumnName="ShipId" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vessel_head">
+            <EntityTypeMapping TypeName="CatalogModel.vessel_head">
+              <MappingFragment StoreEntitySet="vessel_head">
+                <ScalarProperty Name="EnteredBY" ColumnName="EnteredBY" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="chiefengineer" ColumnName="chiefengineer" />
+                <ScalarProperty Name="chiefofficer" ColumnName="chiefofficer" />
+                <ScalarProperty Name="master" ColumnName="master" />
+                <ScalarProperty Name="manhours" ColumnName="manhours" />
+                <ScalarProperty Name="imono" ColumnName="imono" />
+                <ScalarProperty Name="navigation" ColumnName="navigation" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="vessel" ColumnName="vessel" />
+                <ScalarProperty Name="ShipsId" ColumnName="ShipsId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

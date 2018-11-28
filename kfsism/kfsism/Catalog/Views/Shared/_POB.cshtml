@@ -1,0 +1,107 @@
+﻿@model Catalog.Models.pob
+
+<tr style="height:20px;">
+    <td style="font-family:Calibri;text-align:center;font-size:11px;background-color:#C0C0C0;border-left:2px solid;border-right:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" class="auto-style6">
+        <nobr>S.No</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;background-color:#C0C0C0;border-left:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=2>
+        <nobr>Company</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;background-color:#C0C0C0;border-left:1px solid;border-top:2px solid;border-left-color:#000000;border-top-color:#000000;" colspan=2 rowspan=2>
+        <nobr>POB for the Month</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;background-color:#C0C0C0;border-left:1px solid;border-top:2px solid;border-left-color:#000000;border-top-color:#000000;" colspan=7 rowspan=2>
+        <nobr>Remarks</nobr>
+    </td>
+</tr>
+<tr style="height:20px;">
+    <td style="font-family:Calibri;text-align:center;font-size:11px;background-color:#C0C0C0;border-left:2px solid;border-right:1px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-bottom-color:#000000;" class="auto-style6"></td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;background-color:#C0C0C0;border-left:1px solid;border-bottom:1px solid;border-left-color:#000000;border-bottom-color:#000000;"></td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;background-color:#C0C0C0;border-right:1px solid;border-bottom:1px solid;border-right-color:#000000;border-bottom-color:#000000;"></td>
+</tr>
+<tr style="height:28.8px;">
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:2px solid;border-right:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" class="auto-style6">
+        <nobr>1</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=2>
+        <nobr>Crew</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=2>
+        @Html.TextBoxFor(a => a.pobcrew,new { @type="number"})
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=7>
+
+        @Html.TextBoxFor(a => a.remarkscrew,new { @class= "report_remark" })
+    </td>
+</tr>
+<tr style="height:28.8px;">
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:2px solid;border-right:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" class="auto-style6">
+        <nobr>2</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=2>
+        <nobr>Charterers</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=2>
+        @Html.TextBoxFor(a => a.pobcharterers)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=7>
+
+        @Html.TextBoxFor(a => a.remarkscharterers, new { @class = "report_remark" })
+    </td>
+</tr>
+<tr style="height:28.8px;">
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:2px solid;border-right:1px solid;border-left-color:#000000;border-right-color:#000000;" class="auto-style6">
+        <nobr>3</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-left-color:#000000;border-top-color:#000000;" colspan=2>
+        <nobr>KFS office staff</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=2>
+
+        @Html.TextBoxFor(a => a.pobkfc)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=7>
+
+        @Html.TextBoxFor(a => a.remarkskfc, new { @class = "report_remark" })
+    </td>
+</tr>
+<tr style="height:28.8px;">
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:2px solid;border-right:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" class="auto-style6">
+        <nobr>4</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-left-color:#000000;border-top-color:#000000;" colspan=2>
+        <nobr>Others</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=2>
+
+        @Html.TextBoxFor(a => a.pobothers)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=7>
+
+        @Html.TextBoxFor(a => a.remarksothers, new { @class = "report_remark" })
+    </td>
+</tr>
+<tr style="height:28.8px;">
+    <td style="font-family:Calibri;text-align:center;font-size:11px;font-weight:bold;border-left:2px solid;border-right:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" class="auto-style6">
+        <nobr>Total</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=2></td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;font-weight:bold;border-left:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=2>
+        @Html.TextBoxFor(a => a.pobtotal)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=7>
+
+        @Html.TextBox("RemarkTotal","", new { @class = "report_remark" })
+    </td>
+</tr>
+<script>
+    $(document).ready(function () {
+        $('#pobcrew').focusout(function () {
+            var value = $(this).val();
+            var calc = value * 72 * 4;
+            $('#manhours').val(calc);
+            $('#manhourss').html(calc);
+
+        });
+    });
+</script>

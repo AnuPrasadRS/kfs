@@ -1,0 +1,269 @@
+﻿<link href="https://kendo.cdn.telerik.com/2017.1.223/styles/kendo.common-bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="https://kendo.cdn.telerik.com/2017.1.223/styles/kendo.mobile.all.min.css" rel="stylesheet" type="text/css" />
+<link href="https://kendo.cdn.telerik.com/2017.1.223/styles/kendo.dataviz.min.css" rel="stylesheet" type="text/css" />
+<link href="https://kendo.cdn.telerik.com/2017.1.223/styles/kendo.bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+<script src="https://kendo.cdn.telerik.com/2017.1.223/js/jquery.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2017.1.223/js/jszip.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2017.1.223/js/kendo.all.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2017.1.223/js/kendo.aspnetmvc.min.js"></script>
+<style>
+    .k-grid-content {
+        height: 800px !important;
+    }
+
+    .k-scheduler-layout {
+        table-layout: fixed;
+    }
+
+        .k-scheduler-layout > tbody > tr > td:first-child {
+            width: 80px;
+        }
+
+    .k-scheduler-content .k-scheduler-table,
+    .k-scheduler-header .k-scheduler-table {
+        width: 2000px;
+    }
+
+    .textcenter {
+        text-align: center !important;
+        background-color: #bfbfbf;
+    }
+
+    #grid {
+        font-size: 12px !important;
+    }
+</style>
+
+@(Html.Kendo().Grid<Catalog.ViewModel.ReportHeadViewmodel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+        @*Head*@
+columns.Bound(c => c.dated).Title("Date").Width(100).Format("{0:dd/MM/yyyy}").Filterable(x => x.UI("datePicker"));
+columns.Bound(c => c.vesselhead.vessel).Title("Vessel Name").Width(100);
+columns.Bound(c => c.vesselhead.type).Title("Type").Width(100);
+columns.Bound(c => c.vesselhead.imono).Title("IMO Number").Width(100);
+columns.Bound(c => c.pob.pobcrew).Title("No of Crews").Width(100);
+columns.Bound(c => c.vesselhead.manhours).Title("Man hours worked during month").Width(100);
+columns.Bound(c => c.vesselhead.master).Title("Master Name").Width(100);
+columns.Bound(c => c.vesselhead.chiefengineer).Title("Chief Engineer Name").Width(100);
+columns.Bound(c => c.vesselhead.chiefofficer).Title("Chief Officer Name").Width(100);
+
+        @*HSE Leading*@
+
+columns.Bound(c => c.hseleadingindent.nomeeting_m).Title(" HSE Meetings").Width(100);
+columns.Bound(c => c.hseleadingindent.nosuggestion_m).Title("Suggestions for improvement ").Width(100);
+columns.Bound(c => c.hseleadingindent.noemergency_m).Title("Emergency drills").Width(100);
+columns.Bound(c => c.hseleadingindent.nopermit_m).Title("Permits ").Width(100);
+columns.Bound(c => c.hseleadingindent.notbt_m).Title("TBTs conducted").Width(100);
+columns.Bound(c => c.hseleadingindent.notraining_m).Title("No. of trainings conducted ").Width(100);
+columns.Bound(c => c.hseleadingindent.notraininghours_m).Title("Trainings hours for the month").Width(100);
+columns.Bound(c => c.hseleadingindent.notrainingpersons_m).Title("Attendee Nos").Width(100);
+columns.Bound(c => c.hseleadingindent.nosafetyflashed_m).Title("Safety flashed received and communicated ").Width(100);
+
+        @*HSE Incident*@
+
+columns.Bound(c => c.hseleadingindent.ltic_m).Title("Lost Time Injury Case (LTIC)").Width(100);
+columns.Bound(c => c.hseleadingindent.rwdc_m).Title("Restricted Workday Case ( RWDC)").Width(100);
+columns.Bound(c => c.hseleadingindent.fac_m).Title("First Aid Case (FAC)").Width(100);
+columns.Bound(c => c.hseleadingindent.oi_m).Title("Occupational Illness (OI)").Width(100);
+columns.Bound(c => c.hseleadingindent.pdi_m).Title("Property Damage Incidents (PDI)").Width(100);
+columns.Bound(c => c.hseleadingindent.ei_m).Title("Environmental Incidents (EI)").Width(100);
+columns.Bound(c => c.hseleadingindent.nmi_m).Title("Near Miss Incident (NMI)").Width(100);
+columns.Bound(c => c.hseleadingindent.mtc_m).Title("Near Miss Incident (NMI)").Width(100);
+        @*HSE Lagging*@
+columns.Bound(c => c.hselaggingwaste.warning_m).Title("No.  warning notices issued to the vessel crews").Width(100);
+columns.Bound(c => c.hselaggingwaste.complaints_m).Title("Customer complaints received ").Width(100);
+columns.Bound(c => c.hselaggingwaste.fines_m).Title("No. of fines received ").Width(100);
+columns.Bound(c => c.hselaggingwaste.observations_m).Title("No. of observations received ").Width(100);
+columns.Bound(c => c.hselaggingwaste.injury_m).Title("Number of working hours  lost due to injury ").Width(100);
+        @*Performance Indicators*@
+columns.Bound(c => c.lost_time_freqrate).Title("Lost Time Injury frequency Rate ").Width(100);
+columns.Bound(c => c.lost_time_severityrate).Title("Lost Time Injury Severity Rate ").Width(100);
+columns.Bound(c => c.near_miss_incidentfreqrate).Title("Near Miss Incident frequency rate ").Width(100);
+columns.Bound(c => c.total_rptd_case_freqrate).Title("Total Reported case frequency rate").Width(100);
+columns.Bound(c => c.hse_meeting_efficiency).Title("HSE Meeting efficiency  ").Width(100);
+columns.Bound(c => c.training_eff_month).Title("Training efficiency of the month ").Width(100);
+columns.Bound(c => c.total_box_tax).Title("Tool Box Talks (TBT) efficiency ").Width(100);
+columns.Bound(c => c.emergency_dril_eff).Title("Emergency drill efficiency ").Width(100);
+
+        @*Permits to work*@
+
+columns.Bound(c => c.ptwinspection.hot_m).Title("HotPTW").Width(100);
+columns.Bound(c => c.ptwinspection.cold_m).Title("Cold M").Width(100);
+columns.Bound(c => c.ptwinspection.aloft_m).Title("Aloftm").Width(100);
+columns.Bound(c => c.ptwinspection.confined_m).Title("ConfinedM").Width(100);
+columns.Bound(c => c.ptwinspection.diving_m).Title("Diving M").Width(100);
+columns.Bound(c => c.ptwinspection.electrical_m).Title("Electrical Permit").Width(100);
+
+        @*Hse Inspection*@
+
+columns.Bound(c => c.ptwinspection.lifesaving).Title("LSA ").Width(100);
+columns.Bound(c => c.ptwinspection.towing_inspect).Title("Mooring/Towing eqpt").Width(100);
+columns.Bound(c => c.ptwinspection.mess).Title("Mess Room").Width(100);
+columns.Bound(c => c.ptwinspection.galley).Title("Gallery").Width(100);
+columns.Bound(c => c.ptwinspection.radio_inspect).Title("Radio& Navigation").Width(100);
+columns.Bound(c => c.ptwinspection.firefighting).Title("Fire Fight Eqpt").Width(100);
+columns.Bound(c => c.ptwinspection.hull_inspect).Title("Hull Inspt").Width(100);
+columns.Bound(c => c.ptwinspection.pms).Title("PMS Report").Width(100);
+columns.Bound(c => c.ptwinspection.toilet).Title("Toilet Inspect").Width(100);
+
+        @*Fuel and Fresh water*@
+
+columns.Bound(c => c.monthly_rob.openingfuel).Title("Fuel Opening First Day").Width(100);
+columns.Bound(c => c.monthly_rob.receivedfuel).Title("Fuel Recieved for Month").Width(100);
+columns.Bound(c => c.monthly_rob.closingfuel).Title("Fuel Closing Last Day").Width(100);
+columns.Bound(c => c.monthly_rob.consumedfuel).Title("Fuel Consumed By Vessel").Width(100);
+columns.Bound(c => c.monthly_rob.deliveredfuel).Title("Fuel Delivered to Charterers ").Width(100);
+columns.Bound(c => c.monthly_rob.deliveredkfcfuel).Title("Fuel Delivered to KFS").Width(100);
+
+columns.Bound(c => c.monthly_rob.openingfreshwater).Title("Fresh Water Opening First Day").Width(100);
+columns.Bound(c => c.monthly_rob.receivedfreshwater).Title("Fresh Water Recieved for Month").Width(100);
+columns.Bound(c => c.monthly_rob.closingfreshwater).Title("Fresh Water Closing Last Day").Width(100);
+columns.Bound(c => c.monthly_rob.consumedfreshwater).Title("Fresh Water Consumed By Vessel").Width(100);
+columns.Bound(c => c.monthly_rob.deliveredfreshwater).Title("Fresh Water Delivered to Charterers ").Width(100);
+columns.Bound(c => c.monthly_rob.deliveredkfcfreshwater).Title("Fresh Water Delivered to KFS").Width(100);
+
+columns.Bound(c => c.monthly_rob.openingloil).Title("Lube oil Opening First Day").Width(100);
+columns.Bound(c => c.monthly_rob.receivedloil).Title("Lube oil Recieved for Month").Width(100);
+columns.Bound(c => c.monthly_rob.closingloil).Title("Lube oil Closing Last Day").Width(100);
+columns.Bound(c => c.monthly_rob.consumedloil).Title("Lube oil Consumed By Vessel").Width(100);
+columns.Bound(c => c.monthly_rob.deliveredloil).Title("Lube oil Delivered to Charterers ").Width(100);
+columns.Bound(c => c.monthly_rob.deliveredkfcloil).Title("Lube oil Delivered to KFS").Width(100);
+
+columns.Bound(c => c.monthly_rob.openinghoil).Title("Hydraulic oil Opening First Day").Width(100);
+columns.Bound(c => c.monthly_rob.receivedhoil).Title("Hydraulic oil Recieved for Month").Width(100);
+columns.Bound(c => c.monthly_rob.closinghoil).Title("Hydraulic oil Closing Last Day").Width(100);
+columns.Bound(c => c.monthly_rob.consumedhoil).Title("Hydraulic oil Consumed By Vessel").Width(100);
+columns.Bound(c => c.monthly_rob.deliveredhoil).Title("Hydraulic oil Delivered to Charterers ").Width(100);
+columns.Bound(c => c.monthly_rob.deliveredkfchoil).Title("Hydraulic oil Delivered to KFS").Width(100);
+
+
+columns.Bound(c => c.monthly_rob.aenginerunninghrsfuel).Title("Engine Consumption Main Engine[hrs]").Width(100);
+columns.Bound(c => c.monthly_rob.aenginefuelconsfuel).Title("Engine Consumption Main Engine Fuel Cons[hrs]").Width(100);
+
+columns.Bound(c => c.monthly_rob.aenginefuelconsfreshwater).Title("Engine Consumption Auxilary Engine1[hrs]").Width(100);
+columns.Bound(c => c.monthly_rob.aenginerunninghrsfreshwater).Title("Engine Consumption Auxilary Engine1 Fuel Cons[hrs]").Width(100);
+
+
+columns.Bound(c => c.monthly_rob.aenginerunninghrsloil).Title("Engine Consumption Auxilary Engine3[hrs]").Width(100);
+columns.Bound(c => c.monthly_rob.aenginefuelconsloil).Title("Engine Consumption Auxilary Engine3 Fuel Cons[hrs]").Width(100);
+
+
+columns.Bound(c => c.monthly_rob.aenginerunninghrshoil).Title("Engine Consumption Auxilary Engine3[hrs]").Width(100);
+columns.Bound(c => c.monthly_rob.aenginefuelconshoil).Title("Engine Consumption Auxilary Engine3 Fuel Cons[hrs]").Width(100);
+
+columns.Bound(c => c.monthly_rob.aenginerunninghrsgoil).Title("Engine Consumption Thruster[hrs]").Width(100);
+columns.Bound(c => c.monthly_rob.aenginefuelconsgoil).Title("Engine Consumption Thruster Fuel Cons").Width(100);
+
+columns.Bound(c => c.TotalRunningHrs).Title("Total Running Hrs").Width(100);
+columns.Bound(c => c.TotalFuelCons).Title("Total Fuel Cons").Width(100);
+
+        @*Waste Production*@
+          columns.Bound(c => c.hselaggingwaste.plastic_m).Title("Plastic waste disposed- m3").Width(100);
+          columns.Bound(c => c.hselaggingwaste.food_m).Title("Food waste- m3").Width(100);
+          columns.Bound(c => c.hselaggingwaste.cookingoil_m).Title("Cooking oil Recycled -Liter").Width(100);
+          columns.Bound(c => c.hselaggingwaste.metal_m).Title("Domestic Waste m3").Width(100);
+          columns.Bound(c => c.hselaggingwaste.hazardous_m).Title("Hazardous waste(Bilge) -Liter").Width(100);
+      })
+       .ToolBar(tools => tools.Excel())
+      .Excel(excel => excel
+        .FileName("CumulativeReport.xlsx")
+        .Filterable(true)
+        .ProxyURL(Url.Action("Excel_Export_Save", "Grid"))
+    )
+      .Scrollable()
+      .Filterable()
+      .Events(x => x.DataBound("onDataBound"))
+      .Events(e => e.FilterMenuInit("onFilterMenuInit"))
+      .DataSource(dataSource => dataSource
+          .Ajax()
+           .Model(model =>
+           {
+               model.Id(e => e.vesselhead.id);
+           })
+          .Read(read => read.Action("vessel_headVM_Read", "CumulativeRPT"))
+      )
+)
+
+<script>
+    function datePicker(element) {
+        element.kendoDatePicker({
+            format: "dd/MM/yyyy"
+        });
+
+    }
+    function onDataBound() {
+        var myElem = document.getElementById('trParentHeader');
+        var str = "<tr id='trParentHeader'>"
+            + "<th colspan='8' class='k-header textcenter'><strong>General Information</strong></th>"
+            + "<th colspan='9' style='background-color:yellow;' class='k-header textcenter'><strong>HSE Leading Indicators</strong></th>"
+            + "<th colspan='8'  style='background-color:#a0a0d6;' class='k-header textcenter'><strong>HSE Incident Summary</strong></th>"
+            + "<th colspan='5' style='background-color:#eef5fb;' class='k-header textcenter'><strong>HSE Lagging Indicators</strong></th>"
+            + "<th colspan='9' style='background-color:rgb(251, 221, 164);' class='k-header textcenter'><strong>EHS Performance Indicators</strong></th>"
+            + "<th colspan='6' style='background-color:#bcbcbc;' class='k-header textcenter'><strong>Permits To Works</strong></th>"
+            + "<th colspan='9' style='background-color:#e5e5ff;' class='k-header textcenter'><strong>Hse Inspections</strong></th>"
+            + "<th colspan='36' style='background-color:#50ce31;' class='k-header textcenter'><strong>Fuel and Fresh Water Comsumption</strong></th>"
+            + "<th colspan='5' style='background-color:yellow;' class='k-header textcenter'><strong>Waste Production</strong></th>"
+            + "</tr>";
+        if (myElem == null) {
+            $("#grid").find("th.k-header").parent().before(str);
+        }
+
+        $('#trParentHeader  > th').each(function () {
+            setColsColors($(this).find("strong").html());
+            //   console.log($(this).find("strong").html());
+        });
+        //setColsColors()
+    }
+</script>
+<script>
+    function onFilterMenuInit(e) {
+        if (e.field == "vesselhead.date") {
+            console.log("Condition passed!")
+            var beginOperator = e.container.find("[data-role=dropdownlist]:eq(0)").data("kendoDropDownList");
+            beginOperator.value("gte");
+            beginOperator.trigger("change");
+
+            var endOperator = e.container.find("[data-role=dropdownlist]:eq(2)").data("kendoDropDownList");
+            endOperator.value("lte");
+            endOperator.trigger("change");
+            e.container.find(".k-dropdown").hide()
+        }
+    }
+    function setColsColors(txt) {
+        //  console.log(txt);
+        // var txt = "HSE Leading Indicators";
+        var column = $('table tr th:contains("' + txt + '")');
+        if (column.length < 1) {
+            return;
+        }
+        var getColspans = column.attr("colspan");
+        // console.log(getColspans);
+        var bgcolor = column.css("background-color");
+        //console.log(bgcolor);
+        var columnValue = column.index();
+
+
+        var totalCells = 0;
+        $.each(column.siblings(), function (value, ele) {
+            //Only count the cells that are prior to the selected Column
+            if (value < columnValue) {
+                totalCells = totalCells + parseInt($(ele).attr("colspan"))
+            }
+        });
+
+
+        $('table tbody tr').each(function () {
+            for (let idx = 0; idx < parseInt(getColspans); idx++) {
+                $(this).find('td').eq(totalCells + idx).css('background-color', bgcolor);
+            }
+        });
+        $("table thead tr[role='row']").each(function () {
+            for (let idx = 0; idx < parseInt(getColspans); idx++) {
+                $(this).find("th").eq(totalCells + idx).css('background-color', bgcolor);
+            }
+        });
+    }
+</script>

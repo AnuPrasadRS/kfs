@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9912f1596fa94957aa9324da3ab77876" Name="Diagram1" ZoomLevel="83">
+        <EntityTypeShape EntityType="CatalogModel.Attendance" Width="1.5" PointX="3" PointY="20.75" />
+        <EntityTypeShape EntityType="CatalogModel.Category" Width="1.5" PointX="5.75" PointY="4.25" />
+        <EntityTypeShape EntityType="CatalogModel.EmailPassword" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CatalogModel.Form" Width="1.5" PointX="8" PointY="3.875" />
+        <EntityTypeShape EntityType="CatalogModel.hselaggingwaste" Width="1.5" PointX="8.75" PointY="7.75" />
+        <EntityTypeShape EntityType="CatalogModel.hseleadingindent" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CatalogModel.Login" Width="1.5" PointX="0.75" PointY="10.25" />
+        <EntityTypeShape EntityType="CatalogModel.monthly_activity" Width="1.5" PointX="10.75" PointY="10.75" />
+        <EntityTypeShape EntityType="CatalogModel.monthly_rob" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CatalogModel.NCategory" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="CatalogModel.NForm" Width="1.5" PointX="3" PointY="0.875" />
+        <EntityTypeShape EntityType="CatalogModel.NLink" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="CatalogModel.pob" Width="1.5" PointX="12.75" PointY="12.75" />
+        <EntityTypeShape EntityType="CatalogModel.ptwinspection" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CatalogModel.Ship" Width="1.5" PointX="3.75" PointY="17" />
+        <EntityTypeShape EntityType="CatalogModel.ShoreStaffTraining" Width="1.5" PointX="3" PointY="23.75" />
+        <EntityTypeShape EntityType="CatalogModel.Training" Width="1.5" PointX="3" PointY="8.375" />
+        <EntityTypeShape EntityType="CatalogModel.UserEmail" Width="1.5" PointX="3" PointY="5.625" />
+        <EntityTypeShape EntityType="CatalogModel.UserToShip" Width="1.5" PointX="3" PointY="13.875" />
+        <EntityTypeShape EntityType="CatalogModel.vessel_head" Width="1.5" PointX="6" PointY="10" />
+        <AssociationConnector Association="CatalogModel.FK_Attendance_Login" />
+        <AssociationConnector Association="CatalogModel.FK_Forms_Category" />
+        <AssociationConnector Association="CatalogModel.FK_ShoreStaffTraining_Login" />
+        <AssociationConnector Association="CatalogModel.FK_Training_Login" />
+        <AssociationConnector Association="CatalogModel.FK_UserEmail_Login" />
+        <AssociationConnector Association="CatalogModel.FK_UserId_UserID" />
+        <AssociationConnector Association="CatalogModel.FK_vessel_head_Login" />
+        <AssociationConnector Association="CatalogModel.FK_NForms_NCategory" />
+        <AssociationConnector Association="CatalogModel.FK_NLinks_NForms" />
+        <AssociationConnector Association="CatalogModel.FK_ShipId_ShipID" />
+        <AssociationConnector Association="CatalogModel.FK_ShipsRelation" />
+        <AssociationConnector Association="CatalogModel.FK_NForms_NCategory1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

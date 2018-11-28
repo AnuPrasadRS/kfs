@@ -1,0 +1,112 @@
+﻿@model Catalog.ViewModel.ReportHeadViewmodel
+
+@{
+    ViewBag.Title = "ViewReport";
+    Layout = "";
+}
+
+
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+
+           <style>
+               .auto-style3,.auto-style4{height:13px}#Text31,#TextArea1,.auto-style2,.auto-style4{text-align:left}tr.mothly_activity_summ_input td>input,tr.mothly_activity_summ_input td>nobr>input{width:72px}.report_remark{width:97%!important}#Text100,#Text101,#Text102,#Text103,#Text104,#Text105,#Text106,#Text107,#Text108,#Text109,#Text11,#Text110,#Text111,#Text112,#Text113,#Text114,#Text115,#Text116,#Text117,#Text118,#Text119,#Text120,#Text121,#Text122,#Text123,#Text124,#Text125,#Text126,#Text127,#Text128,#Text129,#Text130,#Text131,#Text132,#Text133,#Text134,#Text135,#Text136,#Text137,#Text138,#Text139,#Text140,#Text141,#Text142,#Text143,#Text144,#Text145,#Text146,#Text147,#Text148,#Text149,#Text150,#Text151,#Text152,#Text153,#Text154,#Text155,#Text156,#Text157,#Text158,#Text159,#Text160,#Text161,#Text162,#Text163,#Text164,#Text165,#Text166,#Text167,#Text168,#Text169,#Text17,#Text170,#Text171,#Text18,#Text19,#Text20,#Text21,#Text22,#Text23,#Text24,#Text25,#Text26,#Text27,#Text28,#Text29,#Text30,#Text31,#Text32,#Text33,#Text34,#Text35,#Text36,#Text40,#Text41,#Text42,#Text43,#Text44,#Text45,#Text46,#Text47,#Text48,#Text49,#Text50,#Text51,#Text52,#Text53,#Text54,#Text55,#Text56,#Text57,#Text63,#Text64,#Text65,#Text66,#Text67,#Text68,#Text69,#Text70,#Text71,#Text72,#Text73,#Text74,#Text75,#Text76,#Text77,#Text78,#Text79,#Text80,#Text81,#Text82,#Text83,#Text84,#Text85,#Text87,#Text88,#Text89,#Text90{width:72px}.readonly_backcolor{background-color:#d2d6de}.auto-style7{height:21px}#Text12,#Text13,#Text14,#Text15,#Text16{width:95px}#Text37,#Text38,#Text39{width:175px}#Text58,#Text59,#Text60,#Text61,#Text62{width:113px}#Text86,#Text91,#Text92,#Text93,#Text94{width:133px}#Text95,#Text96,#Text97,#Text98,#Text99{width:598px}#TextArea1{width:512px;height:51px}
+           </style>
+            <b>
+                <u>Sheet Name</u> :- Monthly report
+            </b>
+            <hr>
+            @using (Html.BeginForm("MonthlyReportVessel","Logins"))
+            {
+               
+
+                <table id="tbl_rpt" class="" cellspacing=0 border=1>
+                    <tbody>
+                        <tr>
+                            <td style="font-family:Arial;text-align:center;font-size:12px;background-color:#FFFFFF;font-weight:bold;text-decoration:underline;" colspan=12>
+                                <nobr>Khalid Faraj Shipping</nobr>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-family:Arial;text-align:center;font-size:12px;font-weight:bold;text-decoration:underline;" colspan=12>
+                                <nobr>MONTHLY REPORT - VESSEL </nobr>
+                            </td>
+                        </tr>
+
+                        @Html.TextBoxFor(a => a.vesselhead.id,new { Name="id",@type="hidden"})
+                        @{ Html.RenderPartial("_VesselHead", Model.vesselhead);  }
+                        <tr style="height:21px;">
+                            <td style="font-family:Calibri;font-size:11px;font-weight:bold;" class="auto-style1" colspan="12">
+                                <nobr>1. MONTHLY ACTIVITY SUMMARY</nobr>
+
+                            </td>
+                        </tr>
+                        @{ Html.RenderPartial("_MonthlyActivitySummary", Model.monthly_activity);  }
+                        <tr style="height:21px;">
+                            <td style="font-family:Calibri;font-size:11px;font-weight:bold;" class="auto-style6" colspan="12">
+                                <nobr>2. MONTHLY ROB STATUS</nobr>
+                            </td>
+                        </tr>
+                        @{ Html.RenderPartial("_MonthlyROB", Model.monthly_rob);  }
+
+                        <tr>
+                            <td style="font-family:Calibri;font-size:11px;font-weight:bold;" class="auto-style7" colspan="12">
+                                <nobr>3. P.O.B</nobr>
+                            </td>
+                        </tr>
+                        @{ Html.RenderPartial("_POB", Model.pob);  }
+                        @{ Html.RenderPartial("_HSELeading_Incident", Model.hseleadingindent);  }
+                        @{ Html.RenderPartial("_HSELagging_WasteProdc", Model.hselaggingwaste);  }
+
+                        <tr style="height:20px;">
+                            <td style="font-family:Calibri;font-size:11px;border-left:1px solid #000000; border-top:1px solid #000000; border-bottom:2px solid #000000;" colspan=3 class="auto-style2"></td>
+                            <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;"></td>
+                            <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;"></td>
+                            <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3></td>
+                            <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;"></td>
+                            <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-right:2px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;"></td>
+                        </tr>
+                        <tr style="height:5px;">
+                            <td style="font-family:Calibri;font-size:11px;font-weight:bold;" class="auto-style6" colspan="12"></td>
+                        </tr>
+                        @{ Html.RenderPartial("_Permit_Inspection_Remark", Model.ptwinspection);  }
+                    </tbody>
+                </table>
+                            }
+
+        </div>
+    </div>
+</section>
+<script src="~/Scripts/jquery.table2excel.min.js"></script>
+
+@section scripts
+ {
+    <script>
+      
+        $(document).ready(function () {
+            $("input[type=text]").replaceWith(function () {
+                return "<label>" + $(this).val() + "</label>";
+            });
+            MakeReadonly();
+        })
+        function MakeReadonly() {
+            $("#tbl_rpt").find("input,button,textarea,select").attr('readonly', 'readonly').addClass("readonly_backcolor");
+            $("#Btn_editable").show();
+            $("#btn_readonly").hide();
+            $("#btn_submit").show();
+
+        }
+        function MakeWritable() {
+            $("#tbl_rpt").find("input,button,textarea,select").removeAttr('readonly', 'readonly').removeClass("readonly_backcolor");
+            $("#Btn_editable").hide();
+            $("#btn_readonly").show();
+            $("#btn_submit").hide();
+        }
+    </script>
+}
+
+
+
+

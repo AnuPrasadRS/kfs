@@ -1,0 +1,31 @@
+﻿
+@{
+    if (Session["Role"].ToString() == "Users")
+    {
+        Layout = "~/Views/Shared/_Layout_user.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-10">
+            <div class="box">
+                <div class="box-header">
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <img class="ims_image" src="~/UserImages/IMSP/06.0 Communication Participation and Consultation/06.0 Communication Participation and Consultation-1.jpg" />
+                    <img class="ims_image" src="~/UserImages/IMSP/06.0 Communication Participation and Consultation/06.0 Communication Participation and Consultation-2.jpg" />
+                    <img class="ims_image" src="~/UserImages/IMSP/06.0 Communication Participation and Consultation/06.0 Communication Participation and Consultation-3.jpg" />
+                    <img class="ims_image" src="~/UserImages/IMSP/06.0 Communication Participation and Consultation/06.0 Communication Participation and Consultation-4.jpg" />
+                    <img class="ims_image" src="~/UserImages/IMSP/06.0 Communication Participation and Consultation/06.0 Communication Participation and Consultation-5.jpg" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

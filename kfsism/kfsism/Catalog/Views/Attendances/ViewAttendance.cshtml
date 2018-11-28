@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Catalog.Models.Attendance>
+
+@{
+    ViewBag.Title = "ViewAttendance";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-10">
+            <div class="box">
+                <div class="box-header">
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                @Html.Label("Ship Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-5">
+                                    @Html.DropDownList("ShipId", null,"Select Ship", htmlAttributes: new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    <table class="table" id="table"></table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+@section scripts {
+
+    <script>
+        $(document).ready(function () {
+            loader(0)
+            $("#ShipId").change(function () {
+                loader($(this).val())
+            });
+
+            function loader(val) {
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: '/Attendances/GetAttendaceWithShipID',
+                    data: { val: val },
+                    success: function (data) {
+                        ///   console.log(data);
+                        var table = $('#table').DataTable();
+                        table.clear().draw();
+                        table.rows.add(data).draw();
+
+                    }
+                });
+            }
+            Table = $('#table').dataTable({
+                "pageLength": 25,
+                "data": [],
+                "columns": [{
+                    "title": "Crew List", 'data': 'Description'
+                }, {
+                        "title": "View/Download", 'data': 'FileUrl'
+                    }, {
+                        "title": "Delete", 'data': 'deletelink'
+                    }
+
+                ]
+            });
+
+        });
+    </script>
+
+}
+
+
+

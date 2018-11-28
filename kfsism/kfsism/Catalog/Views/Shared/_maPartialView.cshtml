@@ -1,0 +1,19 @@
+﻿@model List<Catalog.NcategoryVM>
+
+@foreach (var item in Model)
+{
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-share"></i> <span>@item.NCtgName</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            @foreach (var item1 in item.Nforms)
+            {
+                <li><a href="@Url.Action("ShowDetails", "IMSManual", new { id = item1.Id })"><i class="fa fa-circle-o"></i>@item1.Name</a></li>
+            }
+        </ul>
+    </li>
+}

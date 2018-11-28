@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Catalog.Models.ShoreStaffTraining>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+
+                    <p>
+                        @Html.ActionLink("Create New", "Create")
+                    </p>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AttendanceSheet)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EvaluationSheet)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Entered_On)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Entered_By)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @{ if (item.AttendanceSheet == null)
+                {
+                                            <a target="" href="">No File</a>
+
+                                        }
+                                        else
+                                        {
+                                            <a target="_blank" href="~/TrainingsFilesShoreStaff/Attendance/@Html.DisplayFor(modelItem => item.AttendanceSheet)">View or Download</a>
+
+                                        }
+                                    }
+
+                                </td>
+                                <td>
+                                    @{ if (item.EvaluationSheet == null)
+                {
+                                            <a target="" href="">No File</a>
+
+                                        }
+                                        else
+                                        {
+                                            <a target="_blank" href="~/TrainingsFilesShoreStaff/Evaluation/@Html.DisplayFor(modelItem => item.EvaluationSheet)">View or Download</a>
+
+                                        }
+                                    }
+
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Entered_On)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Login.Username)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.ShoreStaffTrainingID }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.ShoreStaffTrainingID }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.ShoreStaffTrainingID })
+                                </td>
+                            </tr>
+                                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

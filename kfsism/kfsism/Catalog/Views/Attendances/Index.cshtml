@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Catalog.Models.Attendance>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-10">
+            <div class="box">
+                <div class="box-header">
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <p>
+                        @Html.ActionLink("Create New", "Create")
+                    </p>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Description)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FileUrl)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EnteredOn)
+                            </th>
+                           
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                 <a target="_blank" href="~/Attendance/@Html.DisplayFor(modelItem => item.FileUrl)">View or Download</a>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EnteredOn)
+                                </td>
+                              
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.AttendanceId }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.AttendanceId }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.AttendanceId })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

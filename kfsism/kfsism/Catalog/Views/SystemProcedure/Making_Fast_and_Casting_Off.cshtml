@@ -1,0 +1,30 @@
+﻿@{
+    if (Session["Role"].ToString() == "Users")
+    {
+        Layout = "~/Views/Shared/_Layout_user.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-10">
+            <div class="box">
+                <div class="box-header">
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <img class="ims_image" src="~/UserImages/SystemProcedure/11 Making Fast and Casting Off/11 Making Fast and Casting Off-1.jpg" />
+                    <img class="ims_image" src="~/UserImages/SystemProcedure/11 Making Fast and Casting Off/11 Making Fast and Casting Off-2.jpg" />
+                    <img class="ims_image" src="~/UserImages/SystemProcedure/11 Making Fast and Casting Off/11 Making Fast and Casting Off-3.jpg" />
+                    <img class="ims_image" src="~/UserImages/SystemProcedure/11 Making Fast and Casting Off/11 Making Fast and Casting Off-4.jpg" />
+                    <img class="ims_image" src="~/UserImages/SystemProcedure/11 Making Fast and Casting Off/11 Making Fast and Casting Off-5.jpg" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

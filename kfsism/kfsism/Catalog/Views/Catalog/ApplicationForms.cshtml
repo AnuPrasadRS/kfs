@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Catalog.Models.Form>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+
+            <div class="box">
+                <div class="box-header">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Department</label>
+
+                        <div class="col-sm-2">
+
+                            @Html.DropDownList("Categories", "Select a Value" )
+                            @*<select class="form-control" id="drp_Category">
+                                <option value="0">All</option>
+                                <option value="1">QHSE</option>
+                                <option value="2">OPERATIONS</option>
+                                <option value="8">IT</option>
+                                <option value="3">TECHNICAL</option>
+                                <option value="4">BUNKER</option>
+                                <option value="5">HR&CREWING</option>
+                                <option value="6"> PROCUREMENT</option>
+                                <option value="7">STORE</option>
+                            </select>*@
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- /.box-header -->
+                <div class="box-body">
+
+                    <table class="table" id="table"></table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts {
+
+    <script>
+        $(document).ready(function () {
+            loader(0)
+            $("#Categories").change(function () {
+                loader($(this).val())
+            });
+
+            function loader(val) {
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: '/Catalog/JsonForms',
+                    data: { val: val },
+                    success: function (data) {
+                        ///   console.log(data);
+                        var table = $('#table').DataTable();
+                        table.clear().draw();
+                        table.rows.add(data).draw();
+
+                    }
+                });
+            }
+
+            Table = $('#table').dataTable({
+                "pageLength": 25,
+                "data": [],
+                "columns": [{
+                    "title": "Name", 'data': 'Name'
+                }, {
+                    "title": "Download", 'data': 'Link'
+                }
+
+                ]
+            });
+
+        });
+    </script>
+}

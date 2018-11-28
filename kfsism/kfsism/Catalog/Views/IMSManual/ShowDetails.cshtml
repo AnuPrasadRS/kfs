@@ -1,0 +1,31 @@
+﻿@model List<Catalog.NLinksVM>
+
+@{
+    if (Session["Role"].ToString() == "Users")
+    {
+        Layout = "~/Views/Shared/_Layout_user.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-10">
+            <div class="box">
+                <div class="box-header">
+
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    @foreach (var item in Model)
+                    {
+                        <img class="ims_image" src="~/Uploaded/@item.Nlink1" />
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

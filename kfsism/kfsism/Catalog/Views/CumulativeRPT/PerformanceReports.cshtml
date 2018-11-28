@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "PerformanceReports";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "PerformanceReport";
+}
+
+    <style type="text/css">
+        body, div, table, thead, tbody, tfoot, tr, th, td, p {
+            font-family: "Calibri";
+            font-size: x-small
+        }
+
+        a.comment-indicator:hover + comment {
+            background: #ffd;
+            position: absolute;
+            display: block;
+            border: 1px solid black;
+            padding: 0.5em;
+        }
+
+        a.comment-indicator {
+            background: red;
+            display: inline-block;
+            border: 1px solid black;
+            width: 0.5em;
+            height: 0.5em;
+        }
+
+        comment {
+            display: none;
+        }
+    </style>
+
+
+    <div style="margin:auto;text-align:center;">
+        <form action="/CumulativeRPT/PerformanceReport" method="post">
+            <select id="year" name="year">
+                <option value="2016">2016</option>
+                <option value="2016">2017</option>
+                <option value="2016">2018</option>
+                <option value="2016">2019</option>
+                <option value="2016">2020</option>
+                <option value="2016">2021</option>
+
+            </select>
+            <input type="submit" class="btn btn-default" />
+        </form>
+    </div>

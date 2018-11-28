@@ -1,0 +1,203 @@
+﻿@model Catalog.Models.ptwinspection
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;text-align:center;font-size:12px;font-weight:bold;border-left:2px solid;border-right:1px solid;border-top:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;" rowspan=6 class="auto-style6">
+        <nobr>4.E Permit (s) to work </nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid #000000; border-top:2px solid #000000; border-bottom:1px solid #000000;" colspan=3 class="auto-style2">
+        <nobr>1) Hot PTW</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.hot_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.hot_y)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:12px;font-weight:bold;border-left:1px solid;border-right:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" rowspan=10 class="auto-style5">
+        <nobr>
+            4.F. Inspections
+            <br />
+            (&radic; Mark for compliance)
+        </nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>1) Life Saving Appliance Inspection</nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-right:1px solid;border-top:2px solid;border-bottom:1px solid;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan="2">
+        @Html.CheckBox("lifesaving", Model != null && (bool)Model.lifesaving)
+
+
+        @*@Html.EditorFor(a =>a.lifesaving)*@
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid #000000; border-top:1px solid #000000; border-bottom:1px solid #000000;" colspan=3 class="auto-style2">
+        <nobr>2) Cold PTW</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.cold_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.cold_y)
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>2) Mooring/Towing Equipment Inspection</nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-right:1px solid;border-top:1px solid;border-bottom:1px solid;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan="2">
+        @Html.CheckBox("towing_inspect", Model != null && (bool)Model.towing_inspect)
+
+
+        @*@Html.EditorFor(a =>a.towing_inspect)*@
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid #000000; border-top:1px solid #000000; border-bottom:1px solid #000000;" colspan=3 class="auto-style2">
+        <nobr>3) Aloft and on side of vessel PTW</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.aloft_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.aloft_y)
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>3) Mess room Inspections </nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-right:1px solid;border-top:1px solid;border-bottom:1px solid;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan="2">
+        @Html.CheckBox("mess", Model != null && (bool)Model.mess)
+
+
+          @*@Html.EditorFor(a => a.mess)*@
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid #000000; border-top:1px solid #000000; border-bottom:1px solid #000000;" colspan=3 class="auto-style2">
+        <nobr>4) Confined Space PTW</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.confined_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.confined_y)
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>4)Galley Inspection</nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-right:1px solid;border-top:1px solid;border-bottom:1px solid;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan="2">
+        @Html.CheckBox("galley", Model != null && (bool)Model.galley)
+
+
+        @*@Html.EditorFor(a =>a.galley)*@
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid #000000; border-top:1px solid #000000; border-bottom:1px solid #000000;" colspan=3 class="auto-style2">
+        <nobr>5) Diving PTW</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.diving_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.diving_y)
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>5) Galley Inspection</nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-right:1px solid;border-top:1px solid;border-bottom:1px solid;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan="2">
+        @Html.CheckBox("galley", Model != null && (bool)Model.galley)
+
+
+        @*@Html.EditorFor(a =>a.galley)*@
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid #000000; border-top:1px solid #000000; border-bottom:2px solid #000000;" colspan=3 class="auto-style2">
+        <nobr>6) Electrical Permit </nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.electrical_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.electrical_y)
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>6) Toilet Inspection</nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-right:1px solid;border-top:1px solid;border-right-color:#000000;border-top-color:#000000;" colspan="2">
+        @Html.CheckBox("toilet", Model != null && (bool)Model.toilet)
+
+
+        @*@Html.EditorFor(a => a.toilet)*@
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:12px;font-weight:bold;border-left:2px solid;border-left-color:#000000;" class="auto-style6" colspan="6" rowspan="4"></td>
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>7) )Radio &amp; navigational Inspection </nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-right:1px solid;border-top:1px solid;border-right-color:#000000;border-top-color:#000000;" colspan="2">
+        @Html.CheckBox("radio_inspect", Model != null && (bool)Model.radio_inspect)
+
+
+        @*@Html.EditorFor(a => a.radio_inspect)*@
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>8) Fire Fighting Equipment Inspection</nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-right:1px solid;border-top:1px solid;border-right-color:#000000;border-top-color:#000000;" colspan="2">
+        @Html.CheckBox("firefighting", Model != null && (bool)Model.firefighting)
+        @*@Html.EditorFor(a =>a.firefighting)*@
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>9) Hull Inspections </nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-right:1px solid;border-top:1px solid;border-right-color:#000000;border-top-color:#000000;" colspan="2">
+        @Html.CheckBox("hull_inspect", Model != null && (bool)Model.hull_inspect)
+        @*@Html.EditorFor(a =>a.hull_inspect)*@
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>10) PMS Report circulated </nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-right:1px solid;border-top:1px solid;border-bottom:2px solid;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan="2">
+        @Html.CheckBox("lifesaving", Model!= null && (bool)Model.lifesaving)
+        @*@Html.EditorFor(a =>a.lifesaving)*@
+    </td>
+</tr>
+<tr style="height:21px;">
+    <td style="font-family:Calibri;font-size:11px;" class="auto-style6" colspan="6">
+        * If any equip is not in readiness, please give reasons in the Remarks column
+    </td>
+    <td style="font-family:Arial;font-size:10px;" class="auto-style5" colspan="6">
+        <nobr>1 IG = 4.5461 Li</nobr>
+    </td>
+</tr>
+<tr>
+    <td style="font-family:Calibri;font-size:11px;font-weight:bold;" class="auto-style7" colspan="6">
+        <nobr>5. Remarks</nobr>
+    </td>
+    <td style="font-family:Arial;font-size:10px;" class="auto-style7" colspan="6">
+        <nobr>1 IG = 0.00454609 cu.m.</nobr>
+    </td>
+</tr>
+<tr style="height:20px;">
+    <td style="font-family:Calibri;text-align:left; font-size:11px;border-left:2px solid #000000; border-top:2px solid #000000;" colspan=12>
+
+        @Html.TextAreaFor(a => a.remark, new { @class = "report_remark" })
+    </td>
+</tr>

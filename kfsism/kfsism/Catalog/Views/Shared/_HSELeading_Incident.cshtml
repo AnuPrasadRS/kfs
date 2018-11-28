@@ -1,0 +1,238 @@
+﻿@model Catalog.Models.hseleadingindent
+<tr style="height:17px;">
+    <td style="font-family:Calibri;font-size:12px;font-weight:bold;" class="auto-style6" colspan="4">
+        &nbsp;<nobr>4. Monthly HSE KPI &nbsp;</nobr>
+
+
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;">
+        <nobr>Current Month </nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;">
+        <nobr>Total (Year)</nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;" class="auto-style5" colspan="4"></td>
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;">
+        <nobr>Current Month </nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;">
+        <nobr>Total (Year)</nobr>
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input" style="height:28.8px;">
+    <td style="font-family:Calibri;text-align:center;font-size:12px;font-weight:bold;border-left:2px solid;border-right:1px solid;border-top:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;" rowspan=10 class="auto-style6">
+        <nobr>4.A. HSE Leading Indicators </nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid #000000; border-top:2px solid #000000; border-bottom:1px solid #000000;" colspan=3 class="auto-style2">
+        <nobr>1) No. of HSE Meetings conducted </nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.nomeeting_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.nomeeting_y)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:12px;font-weight:bold;border-left:1px solid;border-right:1px solid;border-top:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;" rowspan=10 class="auto-style5">
+        <nobr>4.B HSE Incident Summary </nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>1) Lost Time Injury Case (LTIC)</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.ltic_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.ltic_y)
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input" style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid #000000; border-top:1px solid #000000; border-bottom:1px solid #000000;" colspan=3 class="auto-style2">
+        <nobr>
+            2) No of suggestions made<br />
+            &nbsp;for improvement
+        </nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.nosuggestion_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.nosuggestion_y)
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>2) Restricted Workday Case ( RWDC)</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.rwdc_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.rwdc_y)
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid #000000; border-top:1px solid #000000; border-bottom:1px solid #000000;" colspan=3 class="auto-style2">
+        <nobr>3) No. of emergency drills conducted </nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.noemergency_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.noemergency_y)
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>3) First Aid Case (FAC)</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.fac_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.fac_y)
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid #000000; border-top:1px solid #000000; border-bottom:1px solid #000000;" colspan=3 class="auto-style2">
+        <nobr>4) No. of permits issued </nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.nopermit_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.nopermit_y)
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>4) Occupational Illness (OI)</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.oi_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.oi_y)
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid #000000; border-top:1px solid #000000; border-bottom:1px solid #000000;" colspan=3 class="auto-style2">
+        <nobr>5) No. of TBTs conducted </nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.notbt_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.notbt_y)
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>5) Property Damage Incidents (PDI)</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.pdi_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.pdi_y)
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid #000000; border-top:1px solid #000000; border-bottom:1px solid #000000;" colspan=3 class="auto-style2">
+        <nobr>6) No. of safety flashes/ memos received </nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.nosafetyflashes_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.nosafetyflashes_y)
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>6) Environmental Incidents (EI)</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.ei_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.ei_y)
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid #000000; border-top:1px solid #000000; border-bottom:1px solid #000000;" colspan=3 class="auto-style2">
+        <nobr>7) No. of trainings conducted on board </nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.notraining_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.notraining_y)
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>7) Near Miss Incident (NMI)</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.nmi_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:2px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.nmi_y)
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid #000000; border-top:1px solid #000000; border-bottom:1px solid #000000;" colspan=3 class="auto-style2">
+        <nobr>8) Training Hours for the month </nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.notrainingpersons_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.notrainingpersons_y)
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>8) Medical Treatment case (MTC)</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.mtc_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.mtc_y)
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid #000000; border-top:1px solid #000000; border-bottom:1px solid #000000;" colspan=3 class="auto-style2">
+        <nobr>9) No. persons attended the training</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.notrainingpersons_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.notrainingpersons_y)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3></td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;"></td>
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-right:2px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;"></td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid #000000; border-top:1px solid #000000; border-bottom:2px solid #000000;" colspan=3 class="auto-style2">
+        <nobr>
+            10) No. of safety flashed received
+            <br />
+            and communicated
+        </nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.nosafetyflashed_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.nosafetyflashed_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3></td>
+    <td style="font-family:Calibri;font-size:11px;border-top:1px solid;border-bottom:2px solid;border-top-color:#000000;border-bottom-color:#000000;"></td>
+    <td style="font-family:Calibri;font-size:11px;border-right:2px solid;border-top:1px solid;border-bottom:2px solid;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;"></td>
+</tr>

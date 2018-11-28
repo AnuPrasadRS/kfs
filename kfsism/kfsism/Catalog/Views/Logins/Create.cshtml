@@ -1,0 +1,102 @@
+﻿@model Catalog.Models.Login
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-10">
+            <div class="box">
+                <div class="box-header">
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            <h4>Login</h4>
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-5">
+                                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-5">
+                                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                    @Html.LabelFor(model => model.Role, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-5">
+                                        @{
+                                            List<SelectListItem> listItems = new List<SelectListItem>();
+                                            listItems.Add(new SelectListItem
+                                            {
+                                                Text = "Users",
+                                                Value = "Users",
+                                                Selected = true
+                                            });
+                                            listItems.Add(new SelectListItem
+                                            {
+                                                Text = "Assistant",
+                                                Value = "Assistant",
+
+                                            });
+                                            listItems.Add(new SelectListItem
+                                            {
+                                                Text = "Co-ordinator",
+                                                Value = "Cordinator",
+
+                                            });
+                                            listItems.Add(new SelectListItem
+                                            {
+                                                Text = "Shore Staff",
+                                                Value = "shorestaff",
+
+                                            });
+                                            listItems.Add(new SelectListItem
+                                            {
+                                                Text = "Vessel Crew",
+                                                Value = "vesselcrew",
+
+                                            });
+                                        }
+
+                                        @Html.DropDownListFor(model => model.Role, listItems, "-- Select Role --", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Create" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <div>
+                        @Html.ActionLink("Back to List", "UserLists")
+                    </div>
+
+                    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+                    <script src="~/Scripts/jquery.validate.min.js"></script>
+                    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

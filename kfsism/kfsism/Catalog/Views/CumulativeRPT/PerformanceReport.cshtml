@@ -1,0 +1,313 @@
+﻿@model List<Catalog.ViewModel.ReportHeadViewmodel>
+@using System.Globalization
+@{
+    ViewBag.Title = "PerformanceReport";
+}
+  @{
+      if (ViewData["Excel"]!=null)
+      {
+          Layout = null;
+
+      }
+  } 
+<style type="text/css">
+    body, div, table, thead, tbody, tfoot, tr, th, td, p {
+        font-family: "Calibri";
+        font-size: x-small
+          }
+
+          a.comment-indicator:hover + comment {
+        background: #ffd;
+        position: absolute;
+        display: block;
+        border: 1px solid black;
+        padding: 0.5em;
+    }
+
+      a.comment-indicator {
+        background: red;
+        display: inline-block;
+        border: 1px solid black;
+        width: 0.5em;
+        height: 0.5em;
+    }
+
+    comment {
+        display: none;
+    }
+</style>
+@{
+    List<SelectListItem> listItems = new List<SelectListItem>();
+    listItems.Add(new SelectListItem
+    {
+        Text = "2016",
+        Value = "2016"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "2017",
+        Value = "2017",
+        Selected = true
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "2018",
+        Value = "2018"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "2019",
+        Value = "2019"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "2020",
+        Value = "2020"
+    });
+}
+        <div style="margin:auto;text-align:center;">
+            <form action="/CumulativeRPT/PerformanceReport" method="post">
+              @Html.DropDownList("year", listItems, "-- Select Status --", ViewData["year"])
+
+                <input type="submit" name="btnsubmit" value="View" class="btn btn-default" />
+                <input type="submit" name="btnsubmit" value="Excel" class="btn btn-default" />
+
+            </form>
+        </div>
+<div style="overflow-x:scroll;" id="table">
+
+    <table cellspacing="0" border="1">
+        <colgroup width="102"></colgroup>
+        <colgroup width="210"></colgroup>
+        <colgroup span="63" width="64"></colgroup>
+        <tr>
+            <td height="74" align="center" valign=middle bgcolor="#F2F2F2"><b><font color="#000000">Month</font></b></td>
+
+            <td colspan=2 height="74" align="center" valign=middle bgcolor="#F2F2F2"><b><font color="#000000">Gen. Info.</font></b></td>
+            <td colspan=9 align="center" valign=middle bgcolor="#D6DCE5"><b><font color="#000000">A. HSE Leading Indicators </font></b></td>
+            <td colspan=8 align="center" valign=middle bgcolor="#FBE5D6"><b><font color="#000000">B. HSE Incident Summary </font></b></td>
+            <td colspan=5 align="center" valign=middle bgcolor="#DEEBF7"><b><font color="#000000">C. HSE Lagging Indicators  </font></b></td>
+            <td colspan=8 align="center" valign=middle bgcolor="#C5E0B4"><b><font color="#000000">D. EHS Performance Indicators   </font></b></td>
+            <td colspan=6 align="center" valign=middle bgcolor="#FFF2CC"><b><font color="#000000">PTW(s) Issued</font></b></td>
+            <td colspan=9 align="center" valign=middle bgcolor="#BDD7EE"><b><font color="#000000">HSE Inspections</font></b></td>
+            @*<td colspan=8 align="center" valign=middle bgcolor="#92D050"><b><font color="#000000">Fuel Consumption </font></b></td>
+                <td align="center" valign=middle bgcolor="#92D050"><b><font color="#000000">Fresh Water Consumption </font></b></td>*@
+            <td colspan=7 align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">Waste Produced </font></b></td>
+        </tr>
+        <tr>
+            <td height="19" align="center" valign=middle bgcolor="#F2F2F2" sdval="1" sdnum="1033;"><font color="#000000"> </font></td>
+
+            <td height="19" align="center" valign=middle bgcolor="#F2F2F2" sdval="1" sdnum="1033;"><font color="#000000">1</font></td>
+            <td align="center" valign=middle bgcolor="#F2F2F2" sdval="2" sdnum="1033;"><font color="#000000">2</font></td>
+            <td align="center" valign=middle bgcolor="#D6DCE5" sdval="1" sdnum="1033;"><font color="#000000">1</font></td>
+            <td align="center" valign=middle bgcolor="#D6DCE5" sdval="2" sdnum="1033;"><font color="#000000">2</font></td>
+            <td align="center" valign=middle bgcolor="#D6DCE5" sdval="3" sdnum="1033;"><font color="#000000">3</font></td>
+            <td align="center" valign=middle bgcolor="#D6DCE5" sdval="4" sdnum="1033;"><font color="#000000">4</font></td>
+            <td align="center" valign=middle bgcolor="#D6DCE5" sdval="5" sdnum="1033;"><font color="#000000">5</font></td>
+            <td align="center" valign=middle bgcolor="#D6DCE5" sdval="7" sdnum="1033;"><font color="#000000">7</font></td>
+            <td align="center" valign=middle bgcolor="#D6DCE5" sdval="8" sdnum="1033;"><font color="#000000">8</font></td>
+            <td align="center" valign=middle bgcolor="#D6DCE5" sdval="9" sdnum="1033;"><font color="#000000">9</font></td>
+            <td align="center" valign=middle bgcolor="#D6DCE5" sdval="10" sdnum="1033;"><font color="#000000">10</font></td>
+            <td align="center" valign=middle bgcolor="#FBE5D6" sdval="1" sdnum="1033;"><font color="#000000">1</font></td>
+            <td align="center" valign=middle bgcolor="#FBE5D6" sdval="2" sdnum="1033;"><font color="#000000">2</font></td>
+            <td align="center" valign=middle bgcolor="#FBE5D6" sdval="3" sdnum="1033;"><font color="#000000">3</font></td>
+            <td align="center" valign=middle bgcolor="#FBE5D6" sdval="4" sdnum="1033;"><font color="#000000">4</font></td>
+            <td align="center" valign=middle bgcolor="#FBE5D6" sdval="5" sdnum="1033;"><font color="#000000">5</font></td>
+            <td align="center" valign=middle bgcolor="#FBE5D6" sdval="6" sdnum="1033;"><font color="#000000">6</font></td>
+            <td align="center" valign=middle bgcolor="#FBE5D6" sdval="7" sdnum="1033;"><font color="#000000">7</font></td>
+            <td align="center" valign=middle bgcolor="#FBE5D6" sdval="8" sdnum="1033;"><font color="#000000">8</font></td>
+            <td align="center" valign=middle bgcolor="#DEEBF7" sdval="1" sdnum="1033;"><font color="#000000">1</font></td>
+            <td align="center" valign=middle bgcolor="#DEEBF7" sdval="2" sdnum="1033;"><font color="#000000">2</font></td>
+            <td align="center" valign=middle bgcolor="#DEEBF7" sdval="3" sdnum="1033;"><font color="#000000">3</font></td>
+            <td align="center" valign=middle bgcolor="#DEEBF7" sdval="4" sdnum="1033;"><font color="#000000">4</font></td>
+            <td align="center" valign=middle bgcolor="#DEEBF7" sdval="5" sdnum="1033;"><font color="#000000">5</font></td>
+            <td align="center" valign=middle bgcolor="#C5E0B4" sdval="1" sdnum="1033;"><font color="#000000">1</font></td>
+            <td align="center" valign=middle bgcolor="#C5E0B4" sdval="2" sdnum="1033;"><font color="#000000">2</font></td>
+            <td align="center" valign=middle bgcolor="#C5E0B4" sdval="3" sdnum="1033;"><font color="#000000">3</font></td>
+            <td align="center" valign=middle bgcolor="#C5E0B4" sdval="4" sdnum="1033;"><font color="#000000">4</font></td>
+            <td align="center" valign=middle bgcolor="#C5E0B4" sdval="5" sdnum="1033;"><font color="#000000">5</font></td>
+            <td align="center" valign=middle bgcolor="#C5E0B4" sdval="6" sdnum="1033;"><font color="#000000">6</font></td>
+            <td align="center" valign=middle bgcolor="#C5E0B4" sdval="7" sdnum="1033;"><font color="#000000">7</font></td>
+            <td align="center" valign=middle bgcolor="#C5E0B4" sdval="8" sdnum="1033;"><font color="#000000">8</font></td>
+            <td align="center" valign=middle bgcolor="#FFF2CC" sdval="1" sdnum="1033;"><font color="#000000">1</font></td>
+            <td align="center" valign=middle bgcolor="#FFF2CC" sdval="2" sdnum="1033;"><font color="#000000">2</font></td>
+            <td align="center" valign=middle bgcolor="#FFF2CC" sdval="3" sdnum="1033;"><font color="#000000">3</font></td>
+            <td align="center" valign=middle bgcolor="#FFF2CC" sdval="4" sdnum="1033;"><font color="#000000">4</font></td>
+            <td align="center" valign=middle bgcolor="#FFF2CC" sdval="5" sdnum="1033;"><font color="#000000">5</font></td>
+            <td align="center" valign=middle bgcolor="#FFF2CC" sdval="6" sdnum="1033;"><font color="#000000">6</font></td>
+            <td align="center" valign=middle bgcolor="#BDD7EE" sdval="1" sdnum="1033;"><font color="#000000">1</font></td>
+            <td align="center" valign=middle bgcolor="#BDD7EE" sdval="2" sdnum="1033;"><font color="#000000">2</font></td>
+            <td align="center" valign=middle bgcolor="#BDD7EE" sdval="3" sdnum="1033;"><font color="#000000">3</font></td>
+            <td align="center" valign=middle bgcolor="#BDD7EE" sdval="4" sdnum="1033;"><font color="#000000">4</font></td>
+            <td align="center" valign=middle bgcolor="#BDD7EE" sdval="5" sdnum="1033;"><font color="#000000">5</font></td>
+            <td align="center" valign=middle bgcolor="#BDD7EE" sdval="6" sdnum="1033;"><font color="#000000">6</font></td>
+            @*<td align="center" valign=middle bgcolor="#BDD7EE"><font color="#000000"><br></font></td>*@
+            <td align="center" valign=middle bgcolor="#BDD7EE" sdval="7" sdnum="1033;"><font color="#000000">7</font></td>
+            <td align="center" valign=middle bgcolor="#BDD7EE" sdval="8" sdnum="1033;"><font color="#000000">8</font></td>
+            <td align="center" valign=middle bgcolor="#BDD7EE" sdval="9" sdnum="1033;"><font color="#000000">9</font></td>
+            @*<td align="center" valign=middle bgcolor="#BDD7EE" sdval="10" sdnum="1033;"><font color="#000000">10</font></td>*@
+            @*<td align="center" valign=middle bgcolor="#92D050" sdval="1" sdnum="1033;"><font color="#000000">1</font></td>
+                <td align="center" valign=middle bgcolor="#92D050" sdval="2" sdnum="1033;"><font color="#000000">2</font></td>
+                <td align="center" valign=middle bgcolor="#92D050" sdval="3" sdnum="1033;"><font color="#000000">3</font></td>
+                <td align="center" valign=middle bgcolor="#92D050" sdval="4" sdnum="1033;"><font color="#000000">4</font></td>
+                <td align="center" valign=middle bgcolor="#92D050" sdval="5" sdnum="1033;"><font color="#000000">5</font></td>
+                <td align="center" valign=middle bgcolor="#92D050" sdval="6" sdnum="1033;"><font color="#000000">6</font></td>
+                <td align="center" valign=middle bgcolor="#92D050" sdval="7" sdnum="1033;"><font color="#000000">7</font></td>
+                <td align="center" valign=middle bgcolor="#92D050" sdval="8" sdnum="1033;"><font color="#000000">8</font></td>
+                <td align="center" valign=middle bgcolor="#92D050" sdval="7" sdnum="1033;"><font color="#000000">7</font></td>*@
+            <td align="center" valign=middle bgcolor="#FFFF00" sdval="1" sdnum="1033;"><font color="#000000">1</font></td>
+            <td align="center" valign=middle bgcolor="#FFFF00" sdval="2" sdnum="1033;"><font color="#000000">2</font></td>
+            <td align="center" valign=middle bgcolor="#FFFF00" sdval="3" sdnum="1033;"><font color="#000000">3</font></td>
+            <td align="center" valign=middle bgcolor="#FFFF00" sdval="4" sdnum="1033;"><font color="#000000">4</font></td>
+            <td align="center" valign=middle bgcolor="#FFFF00" sdval="5" sdnum="1033;"><font color="#000000">5</font></td>
+            <td align="center" valign=middle bgcolor="#FFFF00" sdval="6" sdnum="1033;"><font color="#000000">6</font></td>
+            <td align="center" valign=middle bgcolor="#FFFF00" sdval="7" sdnum="1033;"><font color="#000000">7</font></td>
+        </tr>
+        <tr>
+            <td height="80" align="center" valign=middle bgcolor="#F2F2F2"><b><font color="#000000"> </font></b></td>
+
+            <td height="80" align="center" valign=middle bgcolor="#F2F2F2"><b><font color="#000000">No. of crews </font></b></td>
+            <td align="center" valign=middle bgcolor="#F2F2F2"><b><font color="#000000">Man hours worked during month </font></b></td>
+            <td align="center" valign=middle bgcolor="#D6DCE5"><b><font color="#000000">No. of HSE Meetings conducted </font></b></td>
+            <td align="center" valign=middle bgcolor="#D6DCE5"><b><font color="#000000">No of observation suggestions made for improvement </font></b></td>
+            <td align="center" valign=middle bgcolor="#D6DCE5"><b><font color="#000000">No. of emergency drills conducted  </font></b></td>
+            <td align="center" valign=middle bgcolor="#D6DCE5"><b><font color="#000000">No. of permits issued </font></b></td>
+            <td align="center" valign=middle bgcolor="#D6DCE5"><b><font color="#000000">No. of TBTs conducted  </font></b></td>
+            <td align="center" valign=middle bgcolor="#D6DCE5"><b><font color="#000000">No. of trainings conducted on board </font></b></td>
+            <td align="center" valign=middle bgcolor="#D6DCE5"><b><font color="#000000">Training Hours for the month </font></b></td>
+            <td align="center" valign=middle bgcolor="#D6DCE5"><b><font color="#000000">No. persons attended the training</font></b></td>
+            <td align="center" valign=middle bgcolor="#D6DCE5"><b><font color="#000000">No. of safety flashed received and communicated </font></b></td>
+            <td align="center" valign=middle bgcolor="#FBE5D6"><b><font color="#000000">Lost Time Injury Case (LTIC)</font></b></td>
+            <td align="center" valign=middle bgcolor="#FBE5D6"><b><font color="#000000">Restricted Workday Case ( RWDC)</font></b></td>
+            <td align="center" valign=middle bgcolor="#FBE5D6"><b><font color="#000000">First Aid Case (FAC)</font></b></td>
+            <td align="center" valign=middle bgcolor="#FBE5D6"><b><font color="#000000">Occupational Illness (OI)</font></b></td>
+            <td align="center" valign=middle bgcolor="#FBE5D6"><b><font color="#000000">Property Damage Incidents (PDI)</font></b></td>
+            <td align="center" valign=middle bgcolor="#FBE5D6"><b><font color="#000000">Environmental Incidents (EI)</font></b></td>
+            <td align="center" valign=middle bgcolor="#FBE5D6"><b><font color="#000000">Near Miss Incident (NMI)</font></b></td>
+            <td align="center" valign=middle bgcolor="#FBE5D6"><b><font color="#000000">Medical Treatment Case (MTC)</font></b></td>
+            <td align="center" valign=middle bgcolor="#DEEBF7"><b><font color="#000000">No.  warning notices issued to the vessel crews</font></b></td>
+            <td align="center" valign=middle bgcolor="#DEEBF7"><b><font color="#000000">Customer complaints received </font></b></td>
+            <td align="center" valign=middle bgcolor="#DEEBF7"><b><font color="#000000">No. of fines received </font></b></td>
+            <td align="center" valign=middle bgcolor="#DEEBF7"><b><font color="#000000">No. of observations received </font></b></td>
+            <td align="center" valign=middle bgcolor="#DEEBF7"><b><font color="#000000">Number of working hours  lost due to injury&nbsp;</font></b></td>
+            <td align="center" valign=middle bgcolor="#C5E0B4"><b><font color="#000000">Lost Time Injury frequency Rate (No. of Lost time incidents* Man hours worked during month /1000000)</font></b></td>
+            <td align="center" valign=middle bgcolor="#C5E0B4"><b><font color="#000000">Lost Time Injury Severity Rate (Total lost working hours * Man hours worked during month /1000000)</font></b></td>
+            <td align="center" valign=middle bgcolor="#C5E0B4"><b><font color="#000000">Near Miss Incident frequency rate (no. of NMI for the month* Man hours worked during month /1000000) (Target is 329 per month)</font></b></td>
+            <td align="center" valign=middle bgcolor="#C5E0B4"><b><font color="#000000">Total Reported case frequency rate(No. of reported incidents for the month* Man hours worked during month /1000000)</font></b></td>
+            <td align="center" valign=middle bgcolor="#C5E0B4"><b><font color="#000000">HSE Meeting efficiency  ( No. of meeting conducted in the month/2)*100</font></b></td>
+            <td align="center" valign=middle bgcolor="#C5E0B4"><b><font color="#000000">Training efficiency of the month ( No. of training conducted during the month/…)* 100</font></b></td>
+            <td align="center" valign=middle bgcolor="#C5E0B4"><b><font color="#000000">Tool Box Talks (TBT) efficiency (No. of TBT conducted in the month/4)*100</font></b></td>
+            <td align="center" valign=middle bgcolor="#C5E0B4"><b><font color="#000000">Emergency drill efficiency (No. of drills conducted during the month/ Planned for the month) *100</font></b></td>
+            <td align="center" valign=middle bgcolor="#FFF2CC"><b><font color="#000000">Hot PTW</font></b></td>
+            <td align="center" valign=middle bgcolor="#FFF2CC"><b><font color="#000000">Cold PTW</font></b></td>
+            <td align="center" valign=middle bgcolor="#FFF2CC"><b><font color="#000000">Aloft and on side of vessel PTW</font></b></td>
+            <td align="center" valign=middle bgcolor="#FFF2CC"><b><font color="#000000">Confined Space PTW</font></b></td>
+            <td align="center" valign=middle bgcolor="#FFF2CC"><b><font color="#000000">Diving PTW</font></b></td>
+            <td align="center" valign=middle bgcolor="#FFF2CC"><b><font color="#000000">Electrical Work</font></b></td>
+            <td align="center" valign=middle bgcolor="#BDD7EE"><b><font color="#000000">LSA Inspection</font></b></td>
+            <td align="center" valign=middle bgcolor="#BDD7EE"><b><font color="#000000">Mooring / Towing eqpt. inspection </font></b></td>
+            @*<td align="center" valign=middle bgcolor="#BDD7EE"><b><font color="#000000">Loose Lifting gear Inspection </font></b></td>*@
+            <td align="center" valign=middle bgcolor="#BDD7EE"><b><font color="#000000">Mess room inspection</font></b></td>
+            <td align="center" valign=middle bgcolor="#BDD7EE"><b><font color="#000000">Galley Inspection</font></b></td>
+            <td align="center" valign=middle bgcolor="#BDD7EE"><b><font color="#000000">Radio &amp; navigational Inspection </font></b></td>
+            <td align="center" valign=middle bgcolor="#BDD7EE"><b><font color="#000000">Fire Fighting  Inspection</font></b></td>
+            <td align="center" valign=middle bgcolor="#BDD7EE"><b><font color="#000000">Toilet Inspection</font></b></td>
+            <td align="center" valign=middle bgcolor="#BDD7EE"><b><font color="#000000">Hull Inspections </font></b></td>
+            <td align="center" valign=middle bgcolor="#BDD7EE"><b><font color="#000000">PMS Report circulated </font></b></td>
+            @*<td align="center" valign=middle bgcolor="#BDD7EE"><b><font color="#000000">&nbsp;Other (…………………………………………………….)</font></b></td>*@
+            @*<td align="center" valign=middle bgcolor="#92D050"><b><font color="#000000">Fuel Consumption Per Month (Liters)</font></b></td>
+                <td align="center" valign=middle bgcolor="#92D050"><b><font color="#000000">Bunker Purchase</font></b></td>
+                <td align="center" valign=middle bgcolor="#92D050"><b><font color="#000000">Fuel Transfer</font></b></td>
+                <td align="center" valign=middle bgcolor="#92D050"><b><font color="#000000">Opening Stock ROB </font></b></td>
+                <td align="center" valign=middle bgcolor="#92D050"><b><font color="#000000">Closing Stock ROB</font></b></td>
+                <td align="center" valign=middle bgcolor="#92D050"><b><font color="#000000">Auxillary Engine Running hour</font></b></td>
+                <td align="center" valign=middle bgcolor="#92D050"><b><font color="#000000">Bow Thruster Running hour</font></b></td>
+                <td align="center" valign=middle bgcolor="#92D050"><b><font color="#000000">Main engine running hours HRS</font></b></td>
+                <td align="center" valign=middle bgcolor="#92D050"><b><font color="#000000">Fresh water supplied per Liter</font></b></td>*@
+            <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">Plastic waste disposed- m3</font></b></td>
+            <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">Food waste   - m3</font></b></td>
+            <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">Cooking oil Recycled  -Liter</font></b></td>
+            <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">Domestic Waste -m3</font></b></td>
+            <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">Sewerage water discharge-Liter</font></b></td>
+            <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">Hazardous waste (Bilge) -Liter</font></b></td>
+            <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">Other Waste (Provide Details)</font></b></td>
+        </tr>
+
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000"> @CultureInfo.CurrentCulture.DateTimeFormat.GetAbbreviatedMonthName(item.MonthFromDate)</font></b></td>
+
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.pob.pobcrew</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.vesselhead.manhours</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hseleadingindent.nomeeting_m</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hseleadingindent.nosuggestion_m</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hseleadingindent.noemergency_m </font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hseleadingindent.nopermit_m </font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hseleadingindent.notbt_m </font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hseleadingindent.notraining_m </font></b></td>
+
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hseleadingindent.notraininghours_m</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hseleadingindent.notrainingpersons_m</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hseleadingindent.nosafetyflashed_m</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hseleadingindent.ltic_m </font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hseleadingindent.rwdc_m </font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hseleadingindent.fac_m </font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hseleadingindent.oi_m </font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hseleadingindent.pdi_m </font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hseleadingindent.ei_m </font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hseleadingindent.nmi_m </font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hseleadingindent.mtc_m </font></b></td>
+
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hselaggingwaste.warning_m</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hselaggingwaste.complaints_m </font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hselaggingwaste.fines_m </font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hselaggingwaste.observations_m </font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hselaggingwaste.injury_m </font></b></td>
+
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.lost_time_freqrate</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.lost_time_severityrate</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.near_miss_incidentfreqrate</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.total_rptd_case_freqrate</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hse_meeting_efficiency</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.training_eff_month</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.total_box_tax</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.emergency_dril_eff</font></b></td>
+
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.ptwinspection.hot_m</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.ptwinspection.cold_m</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.ptwinspection.aloft_m</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.ptwinspection.confined_m</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.ptwinspection.diving_m</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.ptwinspection.electrical_m</font></b></td>
+
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.lifesaving_ptw_Sum</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.towing_inspect_ptw_Sum</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.mess_ptw_Sum</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.galley_ptw_Sum</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.radio_inspect_ptw_Sum</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.firefighting_ptw_Sum</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.toilet_ptw_Sum</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hull_inspect_ptw_Sum</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.pms_ptw_Sum</font></b></td>
+
+                @*<td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.monthly_rob.consumedfuel</font></b></td>
+                    <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.monthly_rob.menginerunninghrsfuel</font></b></td>
+                    <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.ptwinspection.diving_m</font></b></td>
+                    <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.ptwinspection.diving_m</font></b></td>
+                    <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.ptwinspection.diving_m</font></b></td>
+                    <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.ptwinspection.diving_m</font></b></td>
+                    <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.ptwinspection.diving_m</font></b></td>*@
+
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hselaggingwaste.plastic_m</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hselaggingwaste.food_m</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hselaggingwaste.cookingoil_m</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hselaggingwaste.metal_m</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hselaggingwaste.seweragewater_m</font></b></td>
+                <td align="center" valign=middle bgcolor="#FFFF00"><b><font color="#000000">@item.hselaggingwaste.hazardous_m</font></b></td>
+            </tr>
+        }
+
+    </table>
+</div>
+<!-- ************************************************************************** -->

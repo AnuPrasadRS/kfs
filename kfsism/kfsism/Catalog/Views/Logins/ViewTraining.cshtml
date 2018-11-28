@@ -1,0 +1,133 @@
+﻿@model IEnumerable<Catalog.Models.Training>
+
+@{
+    ViewBag.Title = "ViewTraining";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body" style=" overflow:scroll;">
+                 
+                    <table class="table" id="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Training_Topic)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Type)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Participant_No)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Duration)
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Training Hours")
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Trainer_Name)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Trainer_Desig)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Date)
+                                </th>
+                                <th>
+                                   Vessel Name
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Comments)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Remark)
+                                </th>
+
+                                <th>Added By</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Training_Topic)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Type)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Participant_No)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Duration)
+                                    </td>
+                                    <td>
+                                        @{
+                                            Double value =Convert.ToDouble(((item.Participant_No) * (item.Duration)));
+                                            TimeSpan span = TimeSpan.FromMinutes(value);
+                                            string label = span.ToString(@"hh\:mm\:ss");}
+                                        @label
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Trainer_Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Trainer_Desig)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Date)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Location)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Comments)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Remark)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Login.Username)
+                                    </td>
+
+                                </tr>
+                                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts {
+    <script src="http://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.html5.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#table').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5'
+                ]
+            });
+        });
+    </script>
+}

@@ -1,0 +1,117 @@
+﻿@model Catalog.ViewModel.ReportHeadViewmodel
+@{
+    if (Session["Role"].ToString() == "Users")
+    {
+        Layout = "~/Views/Shared/_Layout_user.cshtml";
+
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+    }
+}
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+
+            <link href="~/Content/Report.css" rel="stylesheet" />
+            <b>
+                <u>Sheet Name</u> :- Monthly report
+            </b>
+            <hr>
+            @using (Html.BeginForm())
+            {
+
+                <div class="form-group" style="float:right;margin:0px 49px 22px 0px;">
+                    @*<div class="col-md-offset-2 col-md-10">
+                            <input type="button" id="btn_readonly" onclick="MakeReadonly()" value="Create" class="btn btn-primary" />
+                            <input type="submit" id="btn_submit" style="display:none;" value="Submit" class="btn btn-primary" />
+
+                        </div>*@
+                </div>
+                @*<div class="form-group" style="float:right;">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="button" id="Btn_editable" style="display:none;" onclick="MakeWritable()" value="Edit" class="btn btn-primary" />
+
+                        </div>
+                    </div>*@
+
+                <table id="tbl_rpt" class="" cellspacing=0 border=1>
+                    <tbody>
+                        <tr>
+                            <td style="font-family:Arial;text-align:center;font-size:12px;background-color:#FFFFFF;font-weight:bold;text-decoration:underline;" colspan=12>
+                                <nobr>Khalid Faraj Shipping</nobr>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-family:Arial;text-align:center;font-size:12px;font-weight:bold;text-decoration:underline;" colspan=12>
+                                <nobr>MONTHLY REPORT - VESSEL </nobr>
+                            </td>
+                        </tr>
+
+
+                        @{ Html.RenderPartial("_VesselHead", Model.vesselhead);  }
+                        <tr style="height:21px;">
+                            <td style="font-family:Calibri;font-size:11px;font-weight:bold;" class="auto-style1" colspan="12">
+                                <nobr>1. MONTHLY ACTIVITY SUMMARY</nobr>
+
+                            </td>
+                        </tr>
+                        @{ Html.RenderPartial("_MonthlyActivitySummary", Model.monthly_activity);  }
+                        <tr style="height:21px;">
+                            <td style="font-family:Calibri;font-size:11px;font-weight:bold;" class="auto-style6" colspan="12">
+                                <nobr>2. MONTHLY ROB STATUS</nobr>
+                            </td>
+                        </tr>
+                        @{ Html.RenderPartial("_MonthlyROB", Model.monthly_rob);  }
+
+                        <tr>
+                            <td style="font-family:Calibri;font-size:11px;font-weight:bold;" class="auto-style7" colspan="12">
+                                <nobr>3. P.O.B</nobr>
+                            </td>
+                        </tr>
+                        @{ Html.RenderPartial("_POB", Model.pob);  }
+                        @{ Html.RenderPartial("_HSELeading_Incident", Model.hseleadingindent);  }
+                        @{ Html.RenderPartial("_HSELagging_WasteProdc", Model.hselaggingwaste);  }
+
+                        <tr style="height:20px;">
+                            <td style="font-family:Calibri;font-size:11px;border-left:1px solid #000000; border-top:1px solid #000000; border-bottom:2px solid #000000;" colspan=3 class="auto-style2"></td>
+                            <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;"></td>
+                            <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;"></td>
+                            <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3></td>
+                            <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;"></td>
+                            <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-right:2px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;"></td>
+                        </tr>
+                        <tr style="height:5px;">
+                            <td style="font-family:Calibri;font-size:11px;font-weight:bold;" class="auto-style6" colspan="12"></td>
+                        </tr>
+                        @{ Html.RenderPartial("_Permit_Inspection_Remark", Model.ptwinspection);  }
+                    </tbody>
+                </table>
+                            }
+
+        </div>
+    </div>
+</section>
+
+
+    @section scripts
+ {
+    <script>
+        $(document).ready(function () {
+         
+         $("input[type=text]").replaceWith(function () {
+             return "<label>" + $(this).val() + "</label>";
+         });
+         $("#ShipsId").replaceWith(function () {
+             return "<label>" + $("#ShipsId option:selected").text() + "</label>";
+         });
+         $('table#tbl_rpt input[type=checkbox]').attr('disabled', 'true');
+     })
+</script>
+}
+
+
+
+

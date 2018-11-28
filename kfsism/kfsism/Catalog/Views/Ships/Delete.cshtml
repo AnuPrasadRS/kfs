@@ -1,0 +1,49 @@
+﻿@model Catalog.Models.Ship
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-10">
+            <div class="box">
+                <div class="box-header">
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <h3>Are you sure you want to delete this?</h3>
+                    <div>
+                        <h4>Ship</h4>
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.ShipName)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.ShipName)
+                            </dd>
+
+                            @*<dt>
+                                @Html.DisplayNameFor(model => model.OrderBY)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.OrderBY)
+                            </dd>*@
+
+                        </dl>
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-actions no-color">
+                                <input type="submit" value="Delete" class="btn btn-default" /> |
+                                @Html.ActionLink("Back to List", "Index")
+                            </div>
+                        }
+                    </div>
+                    </div></div></div></div></section>

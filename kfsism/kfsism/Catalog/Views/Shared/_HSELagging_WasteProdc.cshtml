@@ -1,0 +1,167 @@
+﻿@model Catalog.Models.hselaggingwaste
+<tr style="height:20px;">
+    <td style="font-family:Calibri;text-align:center;font-size:11px;font-weight:bold;" class="auto-style6" colspan="4"></td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-left-color:#000000;border-right-color:#000000;">
+        <nobr>Current Month </nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-left-color:#000000;border-right-color:#000000;">
+        <nobr>Total (Year)</nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;" class="auto-style5" colspan="4"></td>
+    <td style="font-family:Calibri;font-size:10px;border-left:1px solid;border-right:1px solid;border-left-color:#000000;border-right-color:#000000;">
+        <nobr>Current Month </nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-right:1px solid;border-left-color:#000000;border-right-color:#000000;">
+        <nobr>Total (Year)</nobr>
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;text-align:center;font-size:12px;font-weight:bold;border-left:2px solid;border-right:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" rowspan=8 class="auto-style6">
+        <nobr>4.C. HSE Lagging Indicators </nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3 class="auto-style2">
+        <nobr>
+            1) No. warning notices issued<br />
+            &nbsp;to the vessel crews
+        </nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.warning_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.warning_y)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:12px;font-weight:bold;border-left:1px solid;border-right:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" rowspan=8 class="auto-style5">
+        <nobr>4.D. Waste Produced </nobr>
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>1) Plastic waste disposed- m3</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.plastic_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:2px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.plastic_y)
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3 class="auto-style2">
+        <nobr>2) Customer complaints received </nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.complaints_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.complaints_y)
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>2) Food waste - m3</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.food_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:2px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.food_y)
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3 class="auto-style2">
+        <nobr>3) No. of fines received </nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.fines_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.fines_y)
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>3) Cooking oil Recycled -Liter</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.cookingoil_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:2px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.cookingoil_y)
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3 class="auto-style2">
+        <nobr>4) No. of observations received </nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.observations_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.observations_y)
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>4)Domestic Waste</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.metal_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:2px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.metal_y)
+    </td>
+</tr>
+<tr  class="mothly_activity_summ_input" style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3 class="auto-style2">
+        5) Number of working hours lost due to injury&nbsp;
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.injury_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.injury_y)
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>5) Sewerage water discharge-Liter</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.seweragewater_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:2px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.seweragewater_y)
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid #000000; border-top:1px solid #000000; border-bottom:1px solid #000000;" colspan=3 class="auto-style2"></td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;"></td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;"></td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>6) Hazardous waste (Bilge) -Liter </nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.hazardous_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:2px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.hazardous_y)
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input"  style="height:28.8px;">
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid #000000; border-top:1px solid #000000; border-bottom:1px solid #000000;" colspan=3 class="auto-style2"></td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;"></td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;"></td>
+    <td style="font-family:Calibri;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>7) Other Waste (Provide Details) </nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.others_m)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:2px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+
+        @Html.TextBoxFor(a => a.others_y)
+    </td>
+</tr>

@@ -1,0 +1,70 @@
+﻿@model Catalog.Models.ShoreStaffTraining
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+
+                    <h3>Are you sure you want to delete this?</h3>
+                    <div>
+                        <h4>ShoreStaffTraining</h4>
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.AttendanceSheet)
+                            </dt>
+
+                            <dd>
+                                <a target="_blank" href="~/TrainingsFilesShoreStaff/Attendance/@Html.DisplayFor(model => model.AttendanceSheet)">View or Download</a>
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.EvaluationSheet)
+                            </dt>
+
+                            <dd>
+                                <a target="_blank" href="~/TrainingsFilesShoreStaff/Evaluation/@Html.DisplayFor(model => model.EvaluationSheet)">View or Download</a>
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Entered_On)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Entered_On)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Entered_By)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Entered_By)
+                            </dd>
+
+                        </dl>
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-actions no-color">
+                                <input type="submit" value="Delete" class="btn btn-default" /> |
+                                @Html.ActionLink("Back to List", "Index")
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

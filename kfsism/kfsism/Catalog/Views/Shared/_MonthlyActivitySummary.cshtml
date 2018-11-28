@@ -1,0 +1,126 @@
+﻿@model Catalog.Models.monthly_activity 
+
+<tr class="mothly_activity_summ_input" style="height:43px;">
+    <td style="font-family:Calibri;text-align:center;font-size:11px;background-color:#C0C0C0;font-weight:bold;border-left:2px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=2></td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;background-color:#C0C0C0;border-left:1px solid;border-right:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        <nobr>Steaming</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;background-color:#C0C0C0;border-left:1px solid;border-right:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        <nobr>At Anchorage</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;background-color:#C0C0C0;border-left:1px solid;border-right:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        <nobr>At Berth</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;background-color:#C0C0C0;border-left:1px solid;border-right:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        <nobr>Towing</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;background-color:#C0C0C0;border-left:1px solid;border-right:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" class="auto-style5">
+        <nobr>Maneauvering</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;background-color:#C0C0C0;border-left:1px solid;border-right:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        <nobr>Tied Up</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;background-color:#C0C0C0;border-left:1px solid;border-right:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        <nobr>Total (hh:mm/kl)</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;background-color:#C0C0C0;border-left:1px solid;border-top:2px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3>
+        <nobr>Remarks (if total less than 24 hrs)</nobr>
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input" style="height:28.8px;">
+    <td style="font-family:Calibri;text-align:center;font-size:11px;background-color:#C0C0C0;border-left:2px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=2>
+        <nobr>Time (hh:mm)</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.steamingtime)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.anchoragetime)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.berthtime)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.towingtime)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" class="auto-style5">
+        @Html.TextBoxFor(a => a.downtime)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-left-color:#000000;border-right-color:#000000;" class="auto-style5">
+
+
+        @Html.TextBoxFor(a => a.otherstime)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border:1px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBox("TotalTime")
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3 class="auto-style2">
+
+        @Html.TextBoxFor(a => a.remarkstime, new { @class = "report_remark" })
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input" style="height:28.8px;">
+    <td style="font-family:Calibri;text-align:center;font-size:11px;background-color:#C0C0C0;border-left:2px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=2>
+        <nobr>Consumption of fuel</nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-left-color:#000000;border-right-color:#000000;">
+        @Html.TextBoxFor(a => a.steamingconsumption)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-left-color:#000000;border-right-color:#000000;">
+        @Html.TextBoxFor(a => a.anchorageconsumption)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-left-color:#000000;border-right-color:#000000;">
+        @Html.TextBoxFor(a => a.berthconsumption)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-left-color:#000000;border-right-color:#000000;">
+        @Html.TextBoxFor(a => a.towingconsumption)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-left-color:#000000;border-right-color:#000000;" class="auto-style5">
+        @Html.TextBoxFor(a => a.downconsumption)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-left-color:#000000;border-right-color:#000000;" class="auto-style5">
+
+
+        @Html.TextBoxFor(a => a.othersconsumption)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-left-color:#000000;border-right-color:#000000;">
+        @Html.TextBox("TotalConsumption")
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid;border-top:1px solid;border-bottom:1px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=3 class="auto-style2">
+
+        @Html.TextBoxFor(a => a.remarksconsumption, new { @class = "report_remark" })
+    </td>
+</tr>
+<tr class="mothly_activity_summ_input" style="height:28.8px;">
+    <td style="font-family:Calibri;text-align:center;font-size:11px;background-color:#C0C0C0;border-left:2px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" colspan=2>
+        <nobr>MCR </nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        <nobr>
+            @Html.TextBoxFor(a => a.steamingmcr)
+        </nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        <nobr>
+            @Html.TextBoxFor(a => a.anchoragemcr)
+        </nobr>
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.berthmcr)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.towingmcr)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;" class="auto-style5">
+        @Html.TextBoxFor(a => a.downmcr)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBoxFor(a => a.othersmcr)
+    </td>
+    <td style="font-family:Calibri;text-align:center;font-size:11px;border-left:1px solid;border-right:1px solid;border-top:1px solid;border-bottom:2px solid;border-left-color:#000000;border-right-color:#000000;border-top-color:#000000;border-bottom-color:#000000;">
+        @Html.TextBox("TotalMCR")
+    </td>
+    <td style="font-family:Calibri;font-size:11px;border-left:1px solid #000000; border-top:1px solid #000000; border-bottom:2px solid #000000;" colspan=3 class="auto-style2">
+        @Html.TextBoxFor(a => a.remarksmcr, new { @class = "report_remark" })
+    </td>
+</tr>

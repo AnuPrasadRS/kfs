@@ -1,0 +1,274 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-md-12">
+        <div id="Main"></div>
+    </div>
+</div>
+<style>
+    .k-grid tbody tr {
+        cursor: move;
+    }
+
+    .placeholder {
+        outline-style: dashed;
+        outline-width: 1px;
+        outline-color: red;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        InitialLoad();
+    });
+    function InitialLoad() {
+        $("#Main").kendoGrid({
+            height: 700,
+
+            columns: [
+                { field: "NCtgID", hidden: true },
+                { field: "NCtgName", title: "Category" },
+
+            ],
+            dataSource: {
+                type: "aspnetmvc-ajax",
+                transport: {
+                    read: {
+                        url: "Category_Read",
+
+                    },
+                },
+                schema: {
+                    data: "Data",
+                    total: function (response) {
+                        return response.Total;
+                    },
+                    model: {
+                        id: "NCtgID",
+                        fields: {
+
+                            NCtgID: { type: "number" },
+                            NCtgName: { type: "string" },
+
+                        }
+                    }
+                },
+                pageSize: 10,
+            },
+            editable: "inline",
+            pageable: true,
+            navigatable: true,
+            filterable: true,
+            detailInit: onDetailInit,
+            scrollable: true
+        })
+
+        function onDetailInit(e) {
+
+            var grid = $("<div/>").appendTo(e.detailCell).kendoGrid({
+                dataSource: {
+
+                    type: "aspnetmvc-ajax",
+                    transport: {
+                        read: {
+                            url: "Form_Read",
+                            data: { id: e.data.NCtgID }
+                        },
+                    },
+                    schema: {
+                        data: "Data",
+                        total: function (response) {
+                            return response.Total;
+                        },
+                        model: {
+                            id: "Id",
+                            fields: {
+                                Id: { type: "number" },
+                                Name: { type: "string" },
+                                NCategory: { type: "number" },
+                                Order_O: { type: "string" }
+
+                            }
+                        }
+                    },
+
+                    serverPaging: false,
+                    pageSize: 10,
+                },
+                scrollable: false,
+                detailInit: onDetailInit1,
+                sortable: true,
+                pageable: true,
+                columns: [
+                    { field: "Id", hidden: true },
+                { field: "Name" },
+                { command: { text: "Delete", click: deleteItem }, title: " ", width: "180px" },
+                ]
+
+            }).data("kendoGrid");
+            @*grid.table.kendoSortable({
+                filter: ">tbody >tr",
+                hint: function (element) { //customize the hint
+                    var table = $('<table style="width: 600px;" class="k-grid k-widget"></table>'),
+                        hint;
+
+                    table.append(element.clone()); //append the dragged elemesnt
+                    table.css("opacity", 0.7);
+                    return table; //return the hint element
+                },
+                cursor: "move",
+                placeholder: function (element) {
+                    return $('<tr colspan="4" class="placeholder"></tr>');
+                },
+                change: function (e) {
+                    jsonObj = [];
+                    var skip = grid.dataSource.skip(),
+                        oldIndex = e.oldIndex + skip,
+                        newIndex = e.newIndex + skip,
+                        data = grid.dataSource.data(),
+                       dataItem = grid.dataSource.getByUid(e.item.data("uid"));
+                    grid.dataSource.remove(dataItem);
+                    grid.dataSource.insert(newIndex, dataItem);
+                    for (var i = 0; i < data.length; i++) {
+                        item = {}
+                        item["Id"] = data[i].Id;
+                        item["Order_O"] = i;
+                        jsonObj.push(item);
+                    }
+
+                    console.log(jsonObj)
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("Form_Update", "Home")',
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(jsonObj),
+                        success: function (result) {
+
+                            alert("Position Updated");
+
+                        }
+                    });
+                }
+            });*@
+        }
+        function onDetailInit1(e) {
+            var grid2 = $("<div/>").appendTo(e.detailCell).kendoGrid({
+                dataSource: {
+
+                    type: "aspnetmvc-ajax",
+                    transport: {
+                        read: {
+                            url: "NLinks_Read",
+                            data: { id: e.data.Id }
+                        },
+                    },
+                    schema: {
+                        data: "Data",
+                        model: {
+                            id: "NLinkId",
+                            fields: {
+                                NLinkId: { type: "number" },
+                                NformId: { type: "number" },
+                                Nlink: { type: "string" },
+                                Norder: { type: "number" },
+                            }
+                        }
+                    },
+
+                    serverPaging: false,
+                    pageSize: 16
+                },
+                scrollable: false,
+                sortable: true,
+                // pageable: false,
+                columns: [
+
+                { field: "NLinkId", hidden: true },
+                {
+                    field: "Nlink",
+                    title: "Nlink",
+                    template: '<a href="http://kfsimsm.com/uploaded/#= Nlink #" target="_blank"><img style="width:10%;" src="http://kfsimsm.com/uploaded/#= Nlink #" alt="image" /></a>'
+                },
+               // { field: "Nlink" },
+               // { field: "Norder" },
+                { command: { text: "Delete", click: deleteItem1 }, title: " ", width: "180px" },
+                ]
+
+            }).data("kendoGrid");
+            grid2.table.kendoSortable({
+                filter: ">tbody >tr",
+                hint: function (element) { //customize the hint
+                    var table = $('<table style="width: 600px;" class="k-grid k-widget"></table>'),
+                        hint;
+
+                    table.append(element.clone()); //append the dragged elemesnt
+                    table.css("opacity", 0.7);
+                    return table; //return the hint element
+                },
+                cursor: "move",
+                placeholder: function (element) {
+                    return $('<tr colspan="4" class="placeholder"></tr>');
+                },
+                change: function (e) {
+                    jsonObj = [];
+                    var skip = grid2.dataSource.skip(),
+                        oldIndex = e.oldIndex + skip,
+                        newIndex = e.newIndex + skip,
+                        data = grid2.dataSource.data(),
+                       dataItem = grid2.dataSource.getByUid(e.item.data("uid"));
+                    grid2.dataSource.remove(dataItem);
+                    grid2.dataSource.insert(newIndex, dataItem);
+                    for (var i = 0; i < data.length; i++) {
+                        item = {}
+                        item["NLinkId"] = data[i].NLinkId;
+                        item["Norder"] = i;
+                        jsonObj.push(item);
+                    }
+
+                    console.log(jsonObj)
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("Link_Update", "Home")',
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(jsonObj),
+                        success: function (result) {
+
+                            alert("Position Updated");
+
+                        }
+                    });
+                }
+            });
+        }
+    }
+    function deleteItem(e) {
+
+        var dataItem1 = this.dataItem($(e.currentTarget).closest("tr"))
+        var tr = $(e.target).closest("tr");
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("Form_Delete", "Home")',
+            data: { id: dataItem1.Id },
+            success: function (result) {
+
+                tr.remove();
+            }
+        });
+    }
+    function deleteItem1(e) {
+
+        var dataItem2 = this.dataItem($(e.currentTarget).closest("tr"))
+        var tr1 = $(e.target).closest("tr");
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("Link_Delete", "Home")',
+            data: { id: dataItem2.NLinkId },
+            success: function (result) {
+
+                tr1.remove();
+            }
+        });
+    }
+</script>

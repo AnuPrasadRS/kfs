@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model AdminPanel.ViewModel.Upload_VM
+<div class="col-md-6 grid-margin stretch-card col-lg-offset-3" style="margin:auto;">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Upload Files</h4>
+            @TempData["Message"]
+
+            @using (Html.BeginForm("Home", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="panel-body">
+
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            @Html.TextBoxFor(a => a.Name, new { @class = "form-control", @style = "width: 100%;", @required = "required", @type = "TEXT", @placeholder = "Username" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-12" style="margin-top:10px">
+                            @Html.DropDownListFor(m => m.NCtgID, ViewData["NCtgID"] as SelectList, "Category", new { @class = "form-control required col col-12 clr" })
+
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            @Html.TextBoxFor(m => m.File, new { type = "file", multiple = "true" })
+                            @*  @Html.TextBox("file",null , new  { @class = "form-control", @style = "width: 100%;", @type = "file",@multiple=true })*@
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</div>
+
+

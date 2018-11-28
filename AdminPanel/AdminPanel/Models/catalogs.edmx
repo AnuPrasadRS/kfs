@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="catalog1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Category_ID" />
+          </Key>
+          <Property Name="Category_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NCategory">
+          <Key>
+            <PropertyRef Name="NCtgID" />
+          </Key>
+          <Property Name="NCtgID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NCtgName" Type="varchar" MaxLength="100" />
+          <Property Name="NCtgStatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="NForms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="450" />
+          <Property Name="NCategory" Type="int" />
+          <Property Name="Order_O" Type="int" />
+        </EntityType>
+        <EntityType Name="NLinks">
+          <Key>
+            <PropertyRef Name="NLinkId" />
+          </Key>
+          <Property Name="NLinkId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NformId" Type="int" />
+          <Property Name="Nlink" Type="varchar(max)" />
+          <Property Name="Norder" Type="int" />
+        </EntityType>
+        <Association Name="FK_NForms_NCategory">
+          <End Role="NCategory" Type="Self.NCategory" Multiplicity="0..1" />
+          <End Role="NForms" Type="Self.NForms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NCategory">
+              <PropertyRef Name="NCtgID" />
+            </Principal>
+            <Dependent Role="NForms">
+              <PropertyRef Name="NCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NLinks_NForms">
+          <End Role="NForms" Type="Self.NForms" Multiplicity="0..1" />
+          <End Role="NLinks" Type="Self.NLinks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NForms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NLinks">
+              <PropertyRef Name="NformId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="catalog1ModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NCategory" EntityType="Self.NCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NForms" EntityType="Self.NForms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NLinks" EntityType="Self.NLinks" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_NForms_NCategory" Association="Self.FK_NForms_NCategory">
+            <End Role="NCategory" EntitySet="NCategory" />
+            <End Role="NForms" EntitySet="NForms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NLinks_NForms" Association="Self.FK_NLinks_NForms">
+            <End Role="NForms" EntitySet="NForms" />
+            <End Role="NLinks" EntitySet="NLinks" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="catalog1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Category_ID" />
+          </Key>
+          <Property Name="Category_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NCategory">
+          <Key>
+            <PropertyRef Name="NCtgID" />
+          </Key>
+          <Property Name="NCtgID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NCtgName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NCtgStatus" Type="Boolean" />
+          <NavigationProperty Name="NForms" Relationship="Self.FK_NForms_NCategory" FromRole="NCategory" ToRole="NForms" />
+        </EntityType>
+        <EntityType Name="NForm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="NCategory" Type="Int32" />
+          <Property Name="Order_O" Type="Int32" />
+          <NavigationProperty Name="NCategory1" Relationship="Self.FK_NForms_NCategory" FromRole="NForms" ToRole="NCategory" />
+          <NavigationProperty Name="NLinks" Relationship="catalog1Model.FK_NLinks_NForms" FromRole="NForm" ToRole="NLink" />
+        </EntityType>
+        <Association Name="FK_NForms_NCategory">
+          <End Role="NCategory" Type="Self.NCategory" Multiplicity="0..1" />
+          <End Role="NForms" Type="Self.NForm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NCategory">
+              <PropertyRef Name="NCtgID" />
+            </Principal>
+            <Dependent Role="NForms">
+              <PropertyRef Name="NCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="catalog1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="NCategories" EntityType="Self.NCategory" />
+          <EntitySet Name="NForms" EntityType="Self.NForm" />
+          <AssociationSet Name="FK_NForms_NCategory" Association="Self.FK_NForms_NCategory">
+            <End Role="NCategory" EntitySet="NCategories" />
+            <End Role="NForms" EntitySet="NForms" />
+          </AssociationSet>
+          <EntitySet Name="NLinks" EntityType="catalog1Model.NLink" />
+          <AssociationSet Name="FK_NLinks_NForms" Association="catalog1Model.FK_NLinks_NForms">
+            <End Role="NForm" EntitySet="NForms" />
+            <End Role="NLink" EntitySet="NLinks" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="NLink">
+          <Key>
+            <PropertyRef Name="NLinkId" />
+          </Key>
+          <Property Name="NLinkId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NformId" Type="Int32" />
+          <Property Name="Nlink1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Norder" Type="Int32" />
+          <NavigationProperty Name="NForm" Relationship="catalog1Model.FK_NLinks_NForms" FromRole="NLink" ToRole="NForm" />
+        </EntityType>
+        <Association Name="FK_NLinks_NForms">
+          <End Type="catalog1Model.NForm" Role="NForm" Multiplicity="0..1" />
+          <End Type="catalog1Model.NLink" Role="NLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NForm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NLink">
+              <PropertyRef Name="NformId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="catalog1ModelStoreContainer" CdmEntityContainer="catalog1Entities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="catalog1Model.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NCategories">
+            <EntityTypeMapping TypeName="catalog1Model.NCategory">
+              <MappingFragment StoreEntitySet="NCategory">
+                <ScalarProperty Name="NCtgID" ColumnName="NCtgID" />
+                <ScalarProperty Name="NCtgName" ColumnName="NCtgName" />
+                <ScalarProperty Name="NCtgStatus" ColumnName="NCtgStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NForms">
+            <EntityTypeMapping TypeName="catalog1Model.NForm">
+              <MappingFragment StoreEntitySet="NForms">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NCategory" ColumnName="NCategory" />
+                <ScalarProperty Name="Order_O" ColumnName="Order_O" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NLinks">
+            <EntityTypeMapping TypeName="catalog1Model.NLink">
+              <MappingFragment StoreEntitySet="NLinks">
+                <ScalarProperty Name="Norder" ColumnName="Norder" />
+                <ScalarProperty Name="Nlink1" ColumnName="Nlink" />
+                <ScalarProperty Name="NformId" ColumnName="NformId" />
+                <ScalarProperty Name="NLinkId" ColumnName="NLinkId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
